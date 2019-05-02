@@ -1,0 +1,27 @@
+{
+  "name": "questioner-react",
+  "version": "1.0.0",
+  "description": "questioner frontend react js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDrizzyWay/Questioner-React.git"
+  },
+  "keywords": [
+    "Questioner",
+    "React"
+  ],
+  "author": "Christopher Iliyas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheDrizzyWay/Questioner-React/issues"
+  },
+  "homepage": "https://github.com/TheDrizzyWay/Questioner-React#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
