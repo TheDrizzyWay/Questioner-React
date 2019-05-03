@@ -4,20 +4,20 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  mode: 'production',
-  devtool: 'source-map',
-  optimization: {
+    mode: 'production',
+    devtool: 'source-map',
+    optimization: {
         runtimeChunk: 'single',
         splitChunks: {
-          cacheGroups: {
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'vendors',
-              chunks: 'all'
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
             }
-          }
         },
-        minimizer: [new UglifyJsPlugin()],
-      },
-      plugins: [new OptimizeCssAssetsPlugin()],
+        minimizer: [new UglifyJsPlugin()]
+    },
+    plugins: [new OptimizeCssAssetsPlugin()]
 });
