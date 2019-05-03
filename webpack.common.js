@@ -7,6 +7,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader"
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -22,6 +28,14 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.s?css/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+          test: /\.(png|jpg|gif)$/,
+          use: [{ loader: 'file-loader' }]
+      },
     ]
   },
   resolve: {
@@ -36,4 +50,8 @@ module.exports = {
        title: 'production'
      })
    ],
+   output: {
+      filename: 'index.bundle.js',
+      path: path.resolve(__dirname, 'build')
+    }
 }
