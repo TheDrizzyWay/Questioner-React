@@ -5,7 +5,7 @@ const store = createStore(rootReducer);
 
 describe('Root Reducer', () => {
     it('should return the initial state', () => {
-        const expectedInitialState = {};
+        const expectedInitialState = { sample: true };
         expect(store.getState()).toEqual(expectedInitialState);
     });
 });

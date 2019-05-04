@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/TheDrizzyWay/Questioner-React#readme",
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -74,7 +76,7 @@
     "clearMocks": true,
     "collectCoverage": true,
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.(js|jsx|mjs)$": "babel-jest"
     },
     "setupFilesAfterEnv": [
       "<rootDir>/enzymeConfig.js"
