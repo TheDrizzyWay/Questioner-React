@@ -76,7 +76,7 @@
     "clearMocks": true,
     "collectCoverage": true,
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.(js|jsx|mjs)$": "babel-jest"
     },
     "setupFilesAfterEnv": [
       "<rootDir>/enzymeConfig.js"
