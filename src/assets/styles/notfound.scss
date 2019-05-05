@@ -1,3 +1,5 @@
+@import './base';
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -24,7 +26,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #1abecb;
+  background-color: $notFoundColor;
 }
 
 .not-found .notfound {
@@ -95,7 +97,7 @@ body {
 }
 
 .notfound .home-btn {
-  color: #1abecb;
+  color: $notFoundColor;
   background: #fff;
 }
 

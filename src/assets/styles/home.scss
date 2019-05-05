@@ -1,12 +1,9 @@
-* {
-  margin: 0px;
-  padding: 0px;
-}
+@import './base';
 
 body {
   background: url("../images/colleagues-1437.jpg");
   background-size: cover;
-  width: 100%;
+  width: $fullLength;
   height: auto;
   transition: all 0.2s ease-in;
 }
@@ -16,7 +13,7 @@ body {
 }
 
 .hpg header {
-	width: 100%;
+	width: $fullLength;
 	height: 200px;
 	text-align: center;
 	position: relative;
@@ -24,7 +21,7 @@ body {
 
 .hpg .header_div {
 	padding: 30px;
-	color: #ffffff;
+	color: $white;
 }
 
 .hpg h1 {
@@ -33,7 +30,7 @@ body {
 	font-weight: bolder;
 	margin-top: 50px;
 	margin-bottom: 30px;
-	color: #fffaf0;
+	color: $milk;
 	text-shadow: 1px 1px 1px #333333;
 }
 
@@ -45,15 +42,15 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 2.0em;
   font-weight: bolder;
-  color: #fffaf0;
+  color: $milk;
 }
 
 .hpg .details button {
   width: 10%;
   margin-top: 20px;
   font-family: inherit;
-  color: #ffffff;
-  background: #00bfff;
+  color: $white;
+  background: $homeblue;
   outline: none;
   border: none;
   padding: 5px 15px;
@@ -65,20 +62,20 @@ body {
 }
 
 .hpg .details button:hover {
-  background: #ffffff;
-  color: #00bfff;
+  background: $white;
+  color: $homeblue;
   cursor: pointer;
 }
 
 .hpg footer {
   position: fixed;
-  background: #ffffff;
+  background: $white;
   left: 35%;
   bottom: 0;
   height: 40px;
   padding: 10px 10px;
 	text-align: center;
-	color: #00bfff;
+	color: $homeblue;
   font-weight: bolder;
 	font-size: 25px;
 }
@@ -88,20 +85,20 @@ body {
     padding: 10px;
   }
   h1 {
-    color: #fffaf0;
+    color: $milk;
     font-size: 2.0em;
   }
   .details p {
-    color: #fffaf0;
+    color: $milk;
   }
   .details button {
-    background: #ffffff;
-    color: #00bfff;
+    background: $white;
+    color: $homeblue;
     width: 30%;
   }
   .details button:hover {
-    background: #00bfff;
-    color: #ffffff;
+    background: $homeblue;
+    color: $white;
   }
   footer {
     left: 0;
