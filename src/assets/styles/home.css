@@ -11,23 +11,23 @@ body {
   transition: all 0.2s ease-in;
 }
 
-.header_container {
+.hpg .header_container {
 	display: flex;
 }
 
-header {
+.hpg header {
 	width: 100%;
 	height: 200px;
 	text-align: center;
 	position: relative;
 }
 
-.header_div {
+.hpg .header_div {
 	padding: 30px;
 	color: #ffffff;
 }
 
-h1 {
+.hpg h1 {
 	font-family: 'Montserrat', sans-serif;
   font-size: 3.0em;
 	font-weight: bolder;
@@ -37,18 +37,18 @@ h1 {
 	text-shadow: 1px 1px 1px #333333;
 }
 
-.link-style {
+.hpg .link-style {
   text-decoration: none;
 }
 
-.details p {
+.hpg .details p {
   font-family: 'Roboto', sans-serif;
   font-size: 2.0em;
   font-weight: bolder;
   color: #fffaf0;
 }
 
-.details button {
+.hpg .details button {
   width: 10%;
   margin-top: 20px;
   font-family: inherit;
@@ -64,13 +64,13 @@ h1 {
   transition: all 0.15s ease-in-out;
 }
 
-.details button:hover {
+.hpg .details button:hover {
   background: #ffffff;
   color: #00bfff;
   cursor: pointer;
 }
 
-footer {
+.hpg footer {
   position: fixed;
   background: #ffffff;
   left: 35%;

@@ -4,7 +4,9 @@ import '../assets/styles/home.css';
 
 const LandingPage = () => {
     return (
-        <Landing />
+        <div className="hpg">
+            <Landing />
+        </div>
     );
 };
 
