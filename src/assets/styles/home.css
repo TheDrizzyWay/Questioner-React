@@ -1,10 +1,14 @@
-@import './_base';
+* {
+  margin: 0px;
+  padding: 0px;
+}
 
 body {
   background: url("../images/colleagues-1437.jpg");
   background-size: cover;
-  width: $fullLength;
+  width: 100%;
   height: auto;
+  transition: all 0.2s ease-in;
 }
 
 .header_container {
@@ -12,7 +16,7 @@ body {
 }
 
 header {
-	width: $fullLength;
+	width: 100%;
 	height: 200px;
 	text-align: center;
 	position: relative;
@@ -20,16 +24,16 @@ header {
 
 .header_div {
 	padding: 30px;
-	color: $white;
+	color: #ffffff;
 }
 
 h1 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
   font-size: 3.0em;
 	font-weight: bolder;
 	margin-top: 50px;
 	margin-bottom: 30px;
-	color: $milk;
+	color: #fffaf0;
 	text-shadow: 1px 1px 1px #333333;
 }
 
@@ -38,17 +42,18 @@ h1 {
 }
 
 .details p {
+  font-family: 'Roboto', sans-serif;
   font-size: 2.0em;
   font-weight: bolder;
-  color: $milk;
+  color: #fffaf0;
 }
 
 .details button {
   width: 10%;
   margin-top: 20px;
   font-family: inherit;
-  color: $white;
-  background: $homeblue;
+  color: #ffffff;
+  background: #00bfff;
   outline: none;
   border: none;
   padding: 5px 15px;
@@ -60,20 +65,20 @@ h1 {
 }
 
 .details button:hover {
-  background: $white;
-  color: $homeblue;
+  background: #ffffff;
+  color: #00bfff;
   cursor: pointer;
 }
 
 footer {
   position: fixed;
-  background: $white;
+  background: #ffffff;
   left: 35%;
   bottom: 0;
   height: 40px;
   padding: 10px 10px;
 	text-align: center;
-	color: $homeblue;
+	color: #00bfff;
   font-weight: bolder;
 	font-size: 25px;
 }
@@ -83,20 +88,20 @@ footer {
     padding: 10px;
   }
   h1 {
-    color: $milk;
+    color: #fffaf0;
     font-size: 2.0em;
   }
   .details p {
-    color: $milk;
+    color: #fffaf0;
   }
   .details button {
-    background: $white;
-    color: $homeblue;
+    background: #ffffff;
+    color: #00bfff;
     width: 30%;
   }
   .details button:hover {
-    background: $homeblue;
-    color: $white;
+    background: #00bfff;
+    color: #ffffff;
   }
   footer {
     left: 0;

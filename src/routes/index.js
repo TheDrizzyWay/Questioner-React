@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NotFoundPage from '../containers/NotFoundPage';
 import LandingPage from '../containers/LandingPage';
+import NotFoundPage from '../containers/NotFoundPage';
+import SignUpPage from '../containers/SignUpPage';
 
 const Routes = () => {
     return (
-    <>
-      <Router>
-          <Switch>
-              <Route exact path="/" component={LandingPage}/>
-              <Route component={NotFoundPage} />
-          </Switch>
-      </Router>
-    </>
+        <Router>
+            <Switch>
+                <Route exact path="/" component={LandingPage} />
+                <Route exact path="/signup" component={SignUpPage} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </Router>
     );
 };
 
