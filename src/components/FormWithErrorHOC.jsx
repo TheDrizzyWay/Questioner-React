@@ -4,7 +4,7 @@ const withFormError = (errorExists, component) => {
     return (
     <>
     <div>{component}</div>
-    {errorExists && <div id="red">errors</div>}
+    {errorExists && <div id="red">{errorExists}</div>}
     </>
     );
 };
