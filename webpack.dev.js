@@ -7,6 +7,7 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './build',
         hot: true,
+        publicPath: '/',
         historyApiFallback: true
     }
 });

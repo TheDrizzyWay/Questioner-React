@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Should maintain existing snapshot 1`] = `
+<div
+  className="hpg"
+>
+  <div
+    className="header_container"
+  >
+    <header>
+      <div
+        className="header_div"
+      >
+        <h1>
+          Questioner
+        </h1>
+        <div
+          className="details"
+        >
+          <p>
+            Schedule and organize meetups 
+            <br />
+            with no fuss.
+          </p>
+          <a
+            className="link-style"
+            href="/signup"
+            onClick={[Function]}
+          >
+            <button
+              name="button"
+              type="button"
+            >
+              Get Started
+            </button>
+          </a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <footer>
+    <p>
+      Powered by TheDrizzyWay © 2018
+    </p>
+    <br />
+  </footer>
+</div>
+`;

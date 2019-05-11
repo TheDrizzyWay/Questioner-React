@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ButtonComponent from '../components/Button';
-import '../assets/styles/home.scss';
 
 const Landing = () => {
     return (
@@ -13,10 +11,8 @@ const Landing = () => {
                 <div className="details">
                     <p>Schedule and organize meetups <br/>
              with no fuss.</p>
-                    <Link to="/login" className="link-style">
-                        <ButtonComponent type="button" name="button" color="primary" variant="contained">
-             Get Started
-                        </ButtonComponent>
+                    <Link to="/signup" className="link-style">
+                        <button type="button" name="button">Get Started</button>
                     </Link>
                 </div>
             </div>
