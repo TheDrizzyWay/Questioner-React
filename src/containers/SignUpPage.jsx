@@ -7,7 +7,7 @@ import '../assets/styles/signup.scss';
 const SignUpPage = () => {
     return (
         <div className="spg">
-            <Header />
+            <Header children="Questioner" />
             <SignUpForm />
             <span>Already a member? Login below.</span>
             <a href="signin.html">LOGIN</a>
