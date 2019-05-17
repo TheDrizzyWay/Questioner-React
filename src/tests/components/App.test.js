@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import App from '../../App';
 
 describe('App', () => {
@@ -10,9 +9,7 @@ describe('App', () => {
     });
 
     test('Should maintain existing snapshot', () => {
-        const component = renderer.create(
-            <App />);
-        let tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        const wrapper = shallow(<App />);
+        expect(wrapper).toMatchSnapshot();
     });
 });
