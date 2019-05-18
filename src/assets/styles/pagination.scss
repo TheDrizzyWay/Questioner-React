@@ -1,0 +1,26 @@
+@import './base';
+
+.next {
+  display: flex;
+  padding: 10px 10px;
+  justify-content: center;
+}
+
+.next a {
+  background: #00bfff;
+  color: $white;
+  font-size: 1.5rem;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid $white;
+}
+
+.next a:hover {
+  background: $white;
+  color: #00bfff;
+  cursor: pointer;
+}
+
+.active {
+  background: #4196e1;
+}

@@ -1,15 +1,16 @@
-import { SIGN_UP } from '../actions/authActions';
+const initialAuthState = {};
 
-export const initialAuthState = {};
-
-export const authReducer = (state = initialAuthState, action) => {
-    switch (action.type) {
-        case SIGN_UP:
+const authReducer = (state = initialAuthState, { type, payload }) => {
+    switch (type) {
+        case 'SIGN_UP':
+            console.log(payload);
             return {
                 ...state,
-                formObject: action.payload
+                formObject: payload
             };
         default:
             return state;
     }
 };
+
+export default authReducer;

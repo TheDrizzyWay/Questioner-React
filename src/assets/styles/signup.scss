@@ -4,7 +4,7 @@
   background: url("../images/white1.jpg");
   background-size: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: all 0.2s ease-in;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .spg input {
-    color: #000000;
+    color: $black;
     background: #ded9cf;
     border: 1px solid #87cefa;
     font-size: 20px;
@@ -82,7 +82,7 @@
     text-indent: 0;
     z-index: 1;
     background: #d2d9dd;
-    color: #000000;
+    color: $black;
     -webkit-transition-duration: 0.4s;
     -webkit-transition-property: width;
     -webkit-transition-timing-function: ease;
@@ -256,7 +256,7 @@
   display: flex;
   justify-content: flex-end;
   height:40px;
-  margin-top: 40px;
+  margin-top: 100px;
   background:#f4f4f4;
 }
 

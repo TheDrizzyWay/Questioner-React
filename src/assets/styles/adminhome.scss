@@ -1,0 +1,282 @@
+@import './base';
+
+.ahpg {
+ background: url("../images/white1.jpg");
+ background-size: cover;
+ width: 100%;
+ height: 100%;
+ transition: all 0.2s ease-in;
+}
+
+.ahpg header {
+ display: flex;
+ justify-content: center;
+ background: #00bfff;
+ margin: auto auto;
+ width: 80%;
+ color: $white;
+}
+
+.ahpg .header_container h1 {
+ font-size: 3.0em;
+}
+
+.ahpg .create {
+ display: flex;
+ justify-content: center;
+ margin-top: 20px;
+ margin-left: auto;
+ margin-right: auto;
+ width: 80%;
+ background: $white;
+}
+
+.ahpg .create img {
+ border: 1px solid $white;
+ height: 60px;
+ width: 60px;
+}
+
+.ahpg .create p {
+ color: #00bfff;
+ padding: 10px 20px;
+ font-size: 2.0em;
+}
+
+.create button:hover {
+ background: #00bfff;
+ cursor: pointer;
+}
+
+section {
+ margin-top: 15px;
+ margin-left: auto;
+ margin-right: auto;
+ width: 80%;
+}
+
+section > p {
+ background: #00bfff;
+ text-align: center;
+ font-family: Tahoma;
+ font-size: 1.5em;
+ font-weight: bold;
+ color: $white;
+}
+
+.ahpg .meet_container {
+ background: $white;
+}
+
+@keyframes zoom-in {
+ 0% {
+   transform: scale(1);
+ }
+ 50% {
+   transform: scale(1.05);
+ }
+ 100% {
+   transform: scale(1);
+ }
+}
+
+.meet_card:hover {
+ animation-name: zoom-in;
+ animation-duration: 1s;
+}
+
+.modal {
+ display: none;
+ position: fixed;
+ z-index: 1;
+ left: 0;
+ top: 0;
+ height: 100%;
+ width: 100%;
+ overflow: auto;
+ background-color: rgba(0, 0, 0, 0.5);
+ animation-name: modalopen;
+ animation-duration: 1s;
+}
+
+.modal_content {
+ background-color: #f4f4f4;
+ margin: 10% auto;
+ padding: 20px;
+ width: 70%;
+ box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+.close_btn {
+ background: #00bfff;
+ color: $white;
+ float: right;
+ font-size: 30px;
+ font-weight: bolder;
+ width: 50px;
+ text-align: center;
+}
+
+.close_btn:hover, .close_btn:focus {
+ background: $white;
+ color: #00bfff;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+@keyframes modalopen {
+ from {opacity: 0}
+ to {opacity: 1}
+}
+
+.create_form {
+ max-width: 500px;
+ padding: 10px 20px;
+ background: #f4f7f8;
+ margin: 10px auto;
+ padding: 20px;
+ border-radius: 8px;
+ font-family: Georgia, serif;
+}
+
+.create_form fieldset{
+ border: none;
+}
+
+.create_form legend {
+ font-size: 1.4em;
+ margin-bottom: 10px;
+ margin-left: 30%;
+ color: #00bfff;
+}
+
+.create_form label {
+ display: block;
+ margin-bottom: 8px;
+ color: #00bfff;
+}
+
+.create_form input[type="text"], .create_form input[type="file"],
+.create_form textarea {
+ font-family: Georgia, serif;
+ background: rgba(255,255,255,0.1);
+ border: none;
+ border-radius: 4px;
+ font-size: 16px;
+ margin: 0;
+ outline: 0;
+ padding: 7px;
+ width: 100%;
+ box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ background-color: #e8eeef;
+ color:$black;
+ -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+ box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+ margin-bottom: 30px;
+}
+
+.create_form input[type="text"]:focus,
+.create_form textarea:focus, .create_form input[type="file"]:focus {
+ background: #d2d9dd;
+}
+
+.create_form select {
+ -webkit-appearance: menulist-button;
+ height:35px;
+}
+
+.create_form input[type="submit"] {
+ position: relative;
+ display: block;
+ padding: 19px 39px 18px 39px;
+ color: $white;
+ margin: 0 auto;
+ background: #00bfff;
+ font-size: 25px;
+ text-align: center;
+ font-style: normal;
+ width: 100%;
+ border: 1px solid $white;
+ border-width: 1px 1px 3px;
+ margin-bottom: 10px;
+}
+
+.create_form input[type="submit"]:hover {
+ background: $white;
+ color: #00bfff;
+ cursor: pointer;
+}
+
+#date {
+ padding: 10px 10px;
+ margin-bottom: 15px;
+ font-size: 1.3em;
+}
+.tags-input {
+   display: inline-block;
+   width: 100%;
+   color: #00bfff;
+}
+
+.tags-input .tag {
+   font-size: 85%;
+   padding: 0.5em 0.75em;
+   margin: 0.25em 0.1em;
+   display: inline-block;
+   background-color: #dddddd;
+   transition: all 0.2s linear;
+   cursor: pointer;
+}
+
+.tags-input .tag:hover {
+   background-color: #191970;
+   color: white;
+}
+
+.tags-input .tag .close::after {
+   content: 'X';
+   font-weight: 400;
+   display: inline-block;
+   transform: scale(1.4);
+   margin-left: 0.75em;
+}
+
+.tags-input .tag .close:hover::after {
+   color: red;
+   cursor: pointer;
+}
+
+.tags-input .main-input {
+   border: 0;
+   outline: 0;
+   padding: 0.5em 0.1em;
+}
+
+.footer {
+ height:30px;
+ bottom: 0;
+ margin-top: 40px;
+ background:#f4f4f4;
+}
+
+@media (max-width:600px) {
+ .header_container h1 {
+   text-align: center;
+ }
+ .meet img {
+   width: 180px;
+ }
+ .create_form legend {
+   margin-left: 5%;
+ }
+ .create_form input[type="text"], .create_form input[type="file"],
+ .create_form textarea {
+   width: 180px;
+ }
+
+ #date {
+   width: 150px;
+ }
+}

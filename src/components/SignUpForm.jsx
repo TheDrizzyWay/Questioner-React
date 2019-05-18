@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import withFormError from './FormWithErrorHOC';
-import { signUp } from '../actions/authActions';
+import signUp from '../actions';
 
 const SignUpForm = (props) => {
     const initialFormState = {
@@ -24,8 +24,8 @@ const SignUpForm = (props) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        const { dispatch } = props;
-        dispatch(signUp(info));
+        const { signUp } = props;
+        signUp(info);
     };
 
     const { firstname, lastname } = props.auth ? props.auth : null;
@@ -65,9 +65,10 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
+
 SignUpForm.propTypes = {
     auth: PropTypes.object,
-    dispatch: PropTypes.func
+    signUp: PropTypes.func
 };
 
-export default connect(mapStateToProps)(SignUpForm);
+export default connect(mapStateToProps, { signUp })(SignUpForm);
