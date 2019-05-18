@@ -11,7 +11,7 @@ const SignUpPage = () => {
             <Header children="Questioner" />
             <LoginForm />
             <span>Don't have an account? Sign up using the link below.</span>
-            <Link to="/signin">SIGN UP</Link>
+            <Link to="/signup">SIGN UP</Link>
             <Footer />
         </div>
     );
