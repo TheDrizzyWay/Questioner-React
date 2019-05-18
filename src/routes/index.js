@@ -6,6 +6,7 @@ import LoginPage from '../containers/LoginPage';
 import AdminHomePage from '../containers/AdminHomePage';
 import MeetupViewPage from '../containers/MeetupViewPage';
 import UserHomePage from '../containers/UserHomePage';
+import QuestionsPage from '../containers/QuestionsPage';
 import NotFoundPage from '../containers/NotFoundPage';
 
 const Routes = () => {
@@ -19,6 +20,7 @@ const Routes = () => {
                 <Route exact path="/adminhome" component={AdminHomePage} />
                 <Route exact path="/view" component={MeetupViewPage} />
                 <Route exact path="/userhome" component={UserHomePage} />
+                <Route exact path="/questions" component={QuestionsPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </Router>
