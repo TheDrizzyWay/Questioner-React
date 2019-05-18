@@ -8,15 +8,15 @@
 
 .next a {
   background: #00bfff;
-  color: #ffffff;
+  color: $white;
   font-size: 1.5rem;
   padding: 8px 16px;
   text-decoration: none;
-  border: 1px solid #ffffff;
+  border: 1px solid $white;
 }
 
 .next a:hover {
-  background: #ffffff;
+  background: $white;
   color: #00bfff;
   cursor: pointer;
 }

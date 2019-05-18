@@ -28,7 +28,7 @@
   margin-top: 20px;
   padding: 20px 20px;
   border: 1px solid black;
-  background: #ffffff;
+  background: $white;
   line-height: 1.7;
 }
 
@@ -52,7 +52,7 @@
   padding: 10px 10px;
   margin-left: 10px;
   font-size: 1.1em;
-  color: #ffffff;
+  color: $white;
   letter-spacing: 0.3em;
 }
 
@@ -66,7 +66,7 @@
   margin-top: 20px;
   padding: 20px 20px;
   background: #00bfff;
-  color: #ffffff;
+  color: $white;
   line-height: 1.5;
 }
 
@@ -87,8 +87,8 @@
 
 .mpg .buttons {
   display: flex;
-  background: #ffffff;
-  width: 60%;
+  background: $white;
+  width: 50%;
   margin: auto auto;
   margin-top: 20px;
   justify-content: flex-start;
@@ -106,9 +106,9 @@
 }
 
 .mpg .buttons p {
-  color: #00bfff;
+  color: $white;
   padding: 15px 20px;
-  font-size: 2.0em;
+  font-size: 1.5em;
 }
 
 .mpg .buttons button:hover {
@@ -121,7 +121,7 @@
   cursor: pointer;
 }
 
-.home {
+.mpg .home {
   position: absolute;
   width: 150px;
   margin-top: 5px;
@@ -140,8 +140,8 @@
   transition: all 0.15s ease-in-out;
 }
 
-.home:hover {
-  background: #ffffff;
+.mpg .home:hover {
+  background: $white;
   color: #00bfff;
   cursor: pointer;
 }
@@ -167,7 +167,7 @@
 }
 
 .modal_content {
-  background-color: #ffffff;
+  background-color: $white;
   margin: 10% auto;
   padding: 20px;
   width: 70%;
@@ -176,7 +176,7 @@
 
 .close_btn {
   background: #00bfff;
-  color: #ffffff;
+  color: $white;
   float: right;
   font-size: 30px;
   font-weight: bolder;
@@ -185,7 +185,7 @@
 }
 
 .close_btn:hover, .close_btn:focus {
-  background: #ffffff;
+  background: $white;
   color: #00bfff;
   text-decoration: none;
   cursor: pointer;
@@ -238,7 +238,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	background-color: #e8eeef;
-	color:#000000;
+	color:$black;
 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;
@@ -258,20 +258,20 @@
 	position: relative;
 	display: block;
 	padding: 19px 39px 18px 39px;
-	color: #ffffff;
+	color: $white;
 	margin: 0 auto;
 	background: #00bfff;
 	font-size: 25px;
 	text-align: center;
 	font-style: normal;
 	width: 100%;
-	border: 1px solid #ffffff;
+	border: 1px solid $white;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
 
 .create_form input[type="submit"]:hover {
-	background: #ffffff;
+	background: $white;
   color: #00bfff;
   cursor: pointer;
 }
@@ -333,7 +333,7 @@
   font-size: 1.5em;
   position: absolute;
   top: 15%;
-  box-shadow: 5px 5px 5px #000000;
+  box-shadow: 5px 5px 5px $black;
   z-index: 10001;
   font-weight: 700;
   text-align: center;

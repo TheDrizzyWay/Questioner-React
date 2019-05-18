@@ -14,7 +14,7 @@
  background: #00bfff;
  margin: auto auto;
  width: 80%;
- color: #ffffff;
+ color: $white;
 }
 
 .ahpg .header_container h1 {
@@ -28,11 +28,11 @@
  margin-left: auto;
  margin-right: auto;
  width: 80%;
- background: #ffffff;
+ background: $white;
 }
 
 .ahpg .create img {
- border: 1px solid #ffffff;
+ border: 1px solid $white;
  height: 60px;
  width: 60px;
 }
@@ -61,11 +61,11 @@ section > p {
  font-family: Tahoma;
  font-size: 1.5em;
  font-weight: bold;
- color: #ffffff;
+ color: $white;
 }
 
 .ahpg .meet_container {
- background: #ffffff;
+ background: $white;
 }
 
 @keyframes zoom-in {
@@ -109,7 +109,7 @@ section > p {
 
 .close_btn {
  background: #00bfff;
- color: #ffffff;
+ color: $white;
  float: right;
  font-size: 30px;
  font-weight: bolder;
@@ -118,7 +118,7 @@ section > p {
 }
 
 .close_btn:hover, .close_btn:focus {
- background: #ffffff;
+ background: $white;
  color: #00bfff;
  text-decoration: none;
  cursor: pointer;
@@ -171,7 +171,7 @@ section > p {
  -webkit-box-sizing: border-box;
  -moz-box-sizing: border-box;
  background-color: #e8eeef;
- color:#000000;
+ color:$black;
  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
  margin-bottom: 30px;
@@ -191,20 +191,20 @@ section > p {
  position: relative;
  display: block;
  padding: 19px 39px 18px 39px;
- color: #ffffff;
+ color: $white;
  margin: 0 auto;
  background: #00bfff;
  font-size: 25px;
  text-align: center;
  font-style: normal;
  width: 100%;
- border: 1px solid #ffffff;
+ border: 1px solid $white;
  border-width: 1px 1px 3px;
  margin-bottom: 10px;
 }
 
 .create_form input[type="submit"]:hover {
- background: #ffffff;
+ background: $white;
  color: #00bfff;
  cursor: pointer;
 }

@@ -31,6 +31,13 @@ const MeetupView = (props) => {
                 <p>Upvotes: {props.upvotes}</p>
                 <p>Downvotes: {props.downvotes}</p>
             </div>
+            <hr />
+            <div className="question">
+                <p>Question: {props.body}</p>
+                <p>Posted by: {props.postedby}</p>
+                <p>Upvotes: {props.upvotes}</p>
+                <p>Downvotes: {props.downvotes}</p>
+            </div>
         </div>
     </section>
     <section className="buttons">

@@ -32,7 +32,7 @@
 }
 
 .qpg .add img {
-  border: 1px solid #ffffff;
+  border: 1px solid $white;
   height: 60px;
   width: 60px;
 }
@@ -61,7 +61,7 @@
   font-family: Tahoma;
   font-size: 1.5em;
   font-weight: bold;
-  color: #ffffff;
+  color: $white;
 }
 
 .qpg .container {
@@ -82,7 +82,7 @@
 }
 
 .qpg .questions p {
-  background: #ffffff;
+  background: $white;
   line-height: 0.7;
   font-family: Tahoma;
   font-size: 1.2em;
@@ -114,7 +114,7 @@
 }
 
 .qpg .actions span {
-  color: #ffffff;
+  color: $white;
   font-family: Tahoma;
   font-size: 1.2em;
   padding-top: 10px;
@@ -145,7 +145,7 @@
 
 .close_btn {
   background: #00bfff;
-  color: #ffffff;
+  color: $white;
   float: right;
   font-size: 30px;
   font-weight: bolder;
@@ -154,7 +154,7 @@
 }
 
 .close_btn:hover, .close_btn:focus {
-  background: #ffffff;
+  background: $white;
   color: #00bfff;
   text-decoration: none;
   cursor: pointer;
@@ -201,7 +201,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	background-color: #e8eeef;
-	color:#000000;
+	color:$black;
 	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 30px;
@@ -215,20 +215,20 @@ textarea:focus {
 	position: relative;
 	display: block;
 	padding: 10px 20px 10px 20px;
-	color: #ffffff;
+	color: $white;
 	margin: 0 auto;
 	background: #00bfff;
 	font-size: 20px;
 	text-align: center;
 	font-style: normal;
 	width: 100%;
-	border: 1px solid #ffffff;
+	border: 1px solid $white;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
 }
 
 .create_form input[type="submit"]:hover {
-	background: #ffffff;
+	background: $white;
   color: #00bfff;
   cursor: pointer;
 }
@@ -259,7 +259,7 @@ textarea:focus {
 }
 
 .home:hover {
-  background: #ffffff;
+  background: $white;
   color: #00bfff;
   cursor: pointer;
 }
