@@ -1,9 +1,27 @@
 import authTypes from '../actiontypes';
-const { SIGN_UP } = authTypes;
+const { AUTH_LOADING, /*SIGN_UP_SUCCESS,*/ SIGN_UP_ERROR } = authTypes;
+// import axiosInstance from '../utils/axiosRequest';
 
-const signUp = (formObject) => ({
-    type: SIGN_UP,
-    payload: formObject
+const setLoading = (value) => ({
+    type: AUTH_LOADING,
+    payload: value
 });
 
-export default signUp;
+const setError = (errorMessage) => ({
+    type: SIGN_UP_ERROR,
+    payload: errorMessage
+});
+
+const signUp = (formObject) => async (dispatch) => {
+    try {
+        dispatch(setLoading(true));
+    } catch (err) {
+        dispatch(setLoading(false));
+        const { response: { data: { message } } } = err;
+        dispatch(setError(message));
+    }
+    /* type: SIGN_UP_SUCCESS,
+    payload: formObject */
+};
+
+export { signUp, setLoading };

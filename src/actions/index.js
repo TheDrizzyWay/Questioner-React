@@ -1,3 +1,3 @@
-import signUp from './authActions';
+import { signUp } from './authActions';
 
 export default signUp;

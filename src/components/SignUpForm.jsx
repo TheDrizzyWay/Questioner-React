@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import withFormError from './FormWithErrorHOC';
 import signUp from '../actions';
+import Spinner from './Spinner';
 
 const SignUpForm = (props) => {
     const initialFormState = {
@@ -28,17 +29,18 @@ const SignUpForm = (props) => {
         signUp(info);
     };
 
-    const { firstname, lastname } = props.auth ? props.auth : null;
+    const { auth: { isLoading } } = props;
+    const spinner = isLoading ? <Spinner size={25} /> : null;
 
     return (
         <div id="wrapper">
             <form id="signup_form" onSubmit={onSubmitHandler}>
                 <fieldset>
                     <legend>Signup Form</legend>
-                    {withFormError(firstname, <input type="text" id="firstname"
+                    {withFormError(null, <input type="text" id="firstname"
                         placeholder="First Name" value={info.firstname}
                         maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(lastname, <input type="text" id="lastname" placeholder="Last Name"
+                    {withFormError(null, <input type="text" id="lastname" placeholder="Last Name"
                         value={info.lastname} maxLength="24" onChange={onChangeHandler} required />)}
                     {withFormError(null, <input type="email" id="email" placeholder="Email"
                         value={info.email} onChange={onChangeHandler} required />)}
@@ -54,7 +56,9 @@ const SignUpForm = (props) => {
                         value={info.username} maxLength="24" onChange={onChangeHandler} required />)}
                     {withFormError(null, <input type="tel" id="phonenumber" placeholder="Phone Number"
                         value={info.phonenumber} maxLength="24" onChange={onChangeHandler} required />)}
-                    <input type="submit" id="submit" value="Signup"/>
+                    <button type="submit" id="submit">
+                        {isLoading ? 'Loading... ' : 'Submit'}{spinner}
+                    </button>
                 </fieldset>
             </form>
         </div>

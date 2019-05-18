@@ -2,14 +2,16 @@ const initialAuthState = {};
 
 const authReducer = (state = initialAuthState, { type, payload }) => {
     switch (type) {
-        case 'SIGN_UP':
-            console.log(payload);
+        case 'AUTH_LOADING':
             return {
                 ...state,
-                formObject: payload
+                isLoading: payload
             };
         default:
-            return state;
+            return {
+                ...state,
+                isLoading: false
+            };
     }
 };
 
