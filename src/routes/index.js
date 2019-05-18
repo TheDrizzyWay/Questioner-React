@@ -5,6 +5,7 @@ import SignUpPage from '../containers/SignUpPage';
 import LoginPage from '../containers/LoginPage';
 import AdminHomePage from '../containers/AdminHomePage';
 import MeetupViewPage from '../containers/MeetupViewPage';
+import UserHomePage from '../containers/UserHomePage';
 import NotFoundPage from '../containers/NotFoundPage';
 
 const Routes = () => {
@@ -17,6 +18,7 @@ const Routes = () => {
                 <Route exact path="/signin" component={LoginPage} />
                 <Route exact path="/adminhome" component={AdminHomePage} />
                 <Route exact path="/view" component={MeetupViewPage} />
+                <Route exact path="/userhome" component={UserHomePage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </Router>
