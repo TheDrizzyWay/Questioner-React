@@ -9,7 +9,7 @@ const LoginForm = () => {
                     <legend>Login Form</legend>
                     {withFormError(null, <input type="text" id="email" placeholder="Email" required />)}
                     {withFormError(null, <input type="password" id="password" placeholder="Password" required />)}
-                    <input type="submit" id="submit" value="Sign in"/>
+                    <button type="submit" id="submit">Sign in</button>
                 </fieldset>
             </form>
         </div>

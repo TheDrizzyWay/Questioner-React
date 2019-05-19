@@ -33,7 +33,13 @@ const signUp = (formObject) => async (dispatch) => {
     } catch (err) {
         dispatch(setLoading(false));
         const { response: { data: { status, error } } } = err;
-        if (status === 400) dispatch(setError(error));
+        if (status === 400) return dispatch(setError(error));
+        if (status === 409) {
+            if (error.includes('email')) {
+                return dispatch(setError({ email: [error] }));
+            }
+            return dispatch(setError({ username: [error] }));
+        }
     }
 };
 
