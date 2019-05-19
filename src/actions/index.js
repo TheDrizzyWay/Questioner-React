@@ -1,3 +1,3 @@
-import { signUp } from './authActions';
+import { signUp, clearError } from './authActions';
 
-export default signUp;
+export { signUp, clearError };

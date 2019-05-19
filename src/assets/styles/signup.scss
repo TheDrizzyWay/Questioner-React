@@ -206,25 +206,14 @@
   color: $homeblue;
 }
 
-.error_div {
-  background: $white;
-  color: red;
-  font-weight: bolder;
-  padding-left: 10px;
-  padding-top: 5px;
-}
-
-.error_div ul {
-  list-style-type: none;
-}
-
 #red {
   background: $white;
-  width: 80%;
+  width: 78%;
   font-size:15px;
   font-weight: bolder;
   color:red;
   padding-left: 5px;
+  margin-top: 0;
 }
 
 .spg a {

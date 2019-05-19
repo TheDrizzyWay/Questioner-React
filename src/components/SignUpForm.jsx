@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import withFormError from './FormWithErrorHOC';
-import signUp from '../actions';
+import { signUp, clearError } from '../actions';
 import Spinner from './Spinner';
 
 const SignUpForm = (props) => {
@@ -18,9 +18,13 @@ const SignUpForm = (props) => {
 
     const [info, setInfo] = useState(initialFormState);
 
-    const onChangeHandler = e => {
-        const { id, value } = e.target;
+    const onChangeHandler = ({ target: { id, value } }) => {
         setInfo({ ...info, [id]: value });
+    };
+
+    const clearErrorHandler = ({ target: { id } }) => {
+        const { clearError } = props;
+        clearError(id);
     };
 
     const onSubmitHandler = (e) => {
@@ -29,35 +33,48 @@ const SignUpForm = (props) => {
         signUp(info);
     };
 
-    const { auth: { isLoading } } = props;
-    const spinner = isLoading ? <Spinner size={25} /> : null;
+    const { auth } = props;
+    const spinner = auth.isLoading ? <Spinner size={25} /> : null;
 
     return (
         <div id="wrapper">
             <form id="signup_form" onSubmit={onSubmitHandler}>
                 <fieldset>
                     <legend>Signup Form</legend>
-                    {withFormError(null, <input type="text" id="firstname"
-                        placeholder="First Name" value={info.firstname}
-                        maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="text" id="lastname" placeholder="Last Name"
-                        value={info.lastname} maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="email" id="email" placeholder="Email"
+                    {withFormError(auth.firstname ? auth.firstname[0] : null,
+                        <input type="text" id="firstname"
+                            placeholder="First Name" value={info.firstname}
+                            maxLength="24" onChange={onChangeHandler}
+                            onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.lastname ? auth.lastname[0] : null,
+                        <input type="text" id="lastname" placeholder="Last Name" value={info.lastname}
+                            maxLength="24" onChange={onChangeHandler} required />)}
+
+                    {withFormError(auth.email ? auth.email[0] : null, <input type="email" id="email" placeholder="Email"
                         value={info.email} onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="password" id="password" placeholder="Password"
-                        value={info.password} maxLength="18" onChange={onChangeHandler} required />)}
+
+                    {withFormError(auth.password ? auth.password[0] : null,
+                        <input type="password" id="password" placeholder="Password" value={info.password}
+                            maxLength="18" onChange={onChangeHandler} required />)}
+
                     <div className="small">
                   Your password should be between six and 18 characters long.
                     </div>
-                    {withFormError(null, <input type="password" id="password_confirmation"
-                        value={info.passwordConfirmation} placeholder="Confirm Password" maxLength="18"
+
+                    {withFormError(auth.password_confirmation ? auth.password_confirmation[0] : null,
+                        <input type="password" id="password_confirmation" value={info.passwordConfirmation}
+                            placeholder="Confirm Password" maxLength="18" onChange={onChangeHandler} required />)}
+
+                    {withFormError(auth.username ? auth.username[0] : null, <input type="text" id="username"
+                        placeholder="Username" value={info.username} maxLength="24"
                         onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="text" id="username" placeholder="Username"
-                        value={info.username} maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="tel" id="phonenumber" placeholder="Phone Number"
-                        value={info.phonenumber} maxLength="24" onChange={onChangeHandler} required />)}
-                    <button type="submit" id="submit">
-                        {isLoading ? 'Loading... ' : 'Submit'}{spinner}
+
+                    {withFormError(auth.phonenumber ? auth.phonenumber[0] : null, <input type="tel" id="phonenumber"
+                        placeholder="Phone Number" value={info.phonenumber} maxLength="24"
+                        onChange={onChangeHandler} required />)}
+                    <button type="submit" id="submit" disabled={!!auth.isLoading}>
+                        {auth.isLoading ? 'Loading... ' : 'Submit'}{spinner}
                     </button>
                 </fieldset>
             </form>
@@ -72,7 +89,8 @@ const mapStateToProps = state => ({
 
 SignUpForm.propTypes = {
     auth: PropTypes.object,
-    signUp: PropTypes.func
+    signUp: PropTypes.func,
+    clearError: PropTypes.func
 };
 
-export default connect(mapStateToProps, { signUp })(SignUpForm);
+export default connect(mapStateToProps, { signUp, clearError })(SignUpForm);
