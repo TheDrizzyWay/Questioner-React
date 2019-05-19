@@ -81,6 +81,7 @@ const SignUpForm = (props) => {
                     {withFormError(auth.phonenumber ? auth.phonenumber[0] : null, <input type="tel" id="phonenumber"
                         placeholder="Phone Number" value={info.phonenumber} maxLength="24"
                         onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
                     <button type="submit" id="submit" disabled={!!auth.isLoading}>
                         {auth.isLoading ? 'Loading... ' : 'Submit'}{spinner}
                     </button>
