@@ -37,7 +37,7 @@ const SignUpForm = (props) => {
     };
 
     const { auth, history } = props;
-    const spinner = auth.isLoading ? <Spinner size={25} /> : null;
+    const spinner = auth.isLoading ? <Spinner /> : null;
 
     return (
         <div id="wrapper">

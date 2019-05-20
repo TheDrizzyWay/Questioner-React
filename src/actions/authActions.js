@@ -43,4 +43,4 @@ const signUp = (formObject) => async (dispatch) => {
     }
 };
 
-export { signUp, clearError };
+export { signUp, clearError, setLoading, setError };

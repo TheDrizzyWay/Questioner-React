@@ -34,6 +34,13 @@ describe('<App />', () => {
     test('should correctly update state on input change', () => {
         wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
         wrapper.find('input').at(0).simulate('change', { target: { value: 'myname' } });
-        //expect(wrapper.state().firstname).toEqual('myname');
+        wrapper.find('input').at(1).simulate('change', { target: { value: 'lastname' } });
+        wrapper.find('input').at(2).simulate('change', { target: { value: 'user@email.com' } });
+        wrapper.find('input').at(3).simulate('change', { target: { value: 'password' } });
+        wrapper.find('input').at(4).simulate('change', { target: { value: 'password' } });
+        wrapper.find('input').at(5).simulate('change', { target: { value: 'username' } });
+        wrapper.find('input').at(6).simulate('change', { target: { value: '08011112222' } });
+        wrapper.find('form').simulate('submit', { preventDefault: () => {} });
+        expect(props.signUp).toHaveBeenCalled();
     });
 });
