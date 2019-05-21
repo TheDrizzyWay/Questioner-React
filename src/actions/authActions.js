@@ -1,9 +1,46 @@
 import authTypes from '../actiontypes';
-const { SIGN_UP } = authTypes;
+const { AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR, CLEAR_AUTH_ERROR } = authTypes;
+import axiosInstance from '../utils/axiosRequest';
 
-const signUp = (formObject) => ({
-    type: SIGN_UP,
-    payload: formObject
+const setLoading = (value) => ({
+    type: AUTH_LOADING,
+    payload: value
 });
 
-export default signUp;
+const setError = (error) => ({
+    type: SIGN_UP_ERROR,
+    payload: error
+});
+
+const clearError = (field) => ({
+    type: CLEAR_AUTH_ERROR,
+    payload: field
+});
+
+const signUp = (formObject) => async (dispatch) => {
+    try {
+        dispatch(setLoading(true));
+        const requestBody = JSON.stringify(formObject);
+        const header = { 'Content-Type': 'application/json' };
+
+        const { data } = await axiosInstance.post('/auth/signup', requestBody, {
+            headers: header
+        });
+        return dispatch({
+            type: SIGN_UP_SUCCESS,
+            payload: data.data
+        });
+    } catch (err) {
+        dispatch(setLoading(false));
+        const { response: { data: { status, error } } } = err;
+        if (status === 400) return dispatch(setError(error));
+        if (status === 409) {
+            if (error.includes('email')) {
+                return dispatch(setError({ email: [error] }));
+            }
+            return dispatch(setError({ username: [error] }));
+        }
+    }
+};
+
+export { signUp, clearError, setLoading, setError };

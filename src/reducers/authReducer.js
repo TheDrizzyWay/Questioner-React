@@ -2,14 +2,33 @@ const initialAuthState = {};
 
 const authReducer = (state = initialAuthState, { type, payload }) => {
     switch (type) {
-        case 'SIGN_UP':
-            console.log(payload);
+        case 'AUTH_LOADING':
             return {
                 ...state,
-                formObject: payload
+                isLoading: payload
+            };
+        case 'SIGN_UP_SUCCESS':
+            return {
+                ...state,
+                signedUp: true,
+                isLoading: false,
+                message: `Thanks for signing up ${payload.firstname}. You will be redirected to the login page shortly.`
+            };
+        case 'SIGN_UP_ERROR':
+            return {
+                ...state,
+                ...payload
+            };
+        case 'CLEAR_AUTH_ERROR':
+            return {
+                ...state,
+                [payload]: null
             };
         default:
-            return state;
+            return {
+                ...state,
+                isLoading: false
+            };
     }
 };
 

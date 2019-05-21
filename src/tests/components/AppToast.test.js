@@ -1,17 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../../App';
+import AppToast from '../../components/AppToast';
+jest.useFakeTimers();
 
+const props = {
+    callback: null
+};
 let wrapper;
 
-describe('App', () => {
+describe('AppToast', () => {
     it('Should render component successfully', () => {
-        wrapper = shallow(<App />);
+        wrapper = shallow(<AppToast {...props} />);
         expect(wrapper.length).toEqual(1);
     });
 
     test('Should maintain existing snapshot', () => {
-        wrapper = shallow(<App />);
+        wrapper = shallow(<AppToast {...props} />);
         expect(wrapper).toMatchSnapshot();
     });
 });

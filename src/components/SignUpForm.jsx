@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 import withFormError from './FormWithErrorHOC';
-import signUp from '../actions';
+import { signUp, clearError } from '../actions';
+import Spinner from './Spinner';
+import AppToast, { openSnackbar } from './AppToast';
 
 const SignUpForm = (props) => {
     const initialFormState = {
@@ -17,9 +20,13 @@ const SignUpForm = (props) => {
 
     const [info, setInfo] = useState(initialFormState);
 
-    const onChangeHandler = e => {
-        const { id, value } = e.target;
+    const onChangeHandler = ({ target: { id, value } }) => {
         setInfo({ ...info, [id]: value });
+    };
+
+    const clearErrorHandler = ({ target: { id } }) => {
+        const { clearError } = props;
+        clearError(id);
     };
 
     const onSubmitHandler = (e) => {
@@ -28,35 +35,62 @@ const SignUpForm = (props) => {
         signUp(info);
     };
 
-    const { firstname, lastname } = props.auth ? props.auth : null;
+    const displayToast = (message) => {
+        openSnackbar({ message });
+    };
+
+    const { auth, history } = props;
+    const redirect = () => history.push('/signin');
+    const spinner = auth.isLoading ? <Spinner style={{ float: 'right' }}/> : null;
 
     return (
         <div id="wrapper">
-            <form id="signup_form" onSubmit={onSubmitHandler}>
+            {auth.signedUp && displayToast(auth.message)}
+            <AppToast callback={redirect} />
+            <form id="signup_form" onSubmit={onSubmitHandler} hidden={!!auth.signedUp}>
                 <fieldset>
                     <legend>Signup Form</legend>
-                    {withFormError(firstname, <input type="text" id="firstname"
-                        placeholder="First Name" value={info.firstname}
-                        maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(lastname, <input type="text" id="lastname" placeholder="Last Name"
-                        value={info.lastname} maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="email" id="email" placeholder="Email"
-                        value={info.email} onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="password" id="password" placeholder="Password"
-                        value={info.password} maxLength="18" onChange={onChangeHandler} required />)}
+                    {withFormError(auth.firstname ? auth.firstname[0] : null,
+                        <input type="text" id="firstname"
+                            placeholder="First Name" value={info.firstname}
+                            maxLength="24" onChange={onChangeHandler}
+                            onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.lastname ? auth.lastname[0] : null,
+                        <input type="text" id="lastname" placeholder="Last Name" value={info.lastname}
+                            maxLength="24" onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.email ? auth.email[0] : null, <input type="email" id="email" placeholder="Email"
+                        value={info.email} onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.password ? auth.password[0] : null,
+                        <input type="password" id="password" placeholder="Password" value={info.password}
+                            maxLength="18" onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
                     <div className="small">
                   Your password should be between six and 18 characters long.
                     </div>
-                    {withFormError(null, <input type="password" id="password_confirmation"
-                        value={info.passwordConfirmation} placeholder="Confirm Password" maxLength="18"
-                        onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="text" id="username" placeholder="Username"
-                        value={info.username} maxLength="24" onChange={onChangeHandler} required />)}
-                    {withFormError(null, <input type="tel" id="phonenumber" placeholder="Phone Number"
-                        value={info.phonenumber} maxLength="24" onChange={onChangeHandler} required />)}
-                    <input type="submit" id="submit" value="Signup"/>
+
+                    {withFormError(auth.password_confirmation ? auth.password_confirmation[0] : null,
+                        <input type="password" id="password_confirmation" value={info.passwordConfirmation}
+                            placeholder="Confirm Password" maxLength="18" onChange={onChangeHandler}
+                            onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.username ? auth.username[0] : null, <input type="text" id="username"
+                        placeholder="Username" value={info.username} maxLength="24"
+                        onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
+                    {withFormError(auth.phonenumber ? auth.phonenumber[0] : null, <input type="tel" id="phonenumber"
+                        placeholder="Phone Number" value={info.phonenumber} maxLength="24"
+                        onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
+
+                    <button type="submit" id="submit" disabled={!!auth.isLoading}>
+                        {auth.isLoading ? 'Loading... ' : 'Submit'}
+                    </button>{spinner}
                 </fieldset>
             </form>
+            <span>Already a member? Login below.</span>
+            <Link to="/signin" hidden={!!auth.signedUp}>LOGIN</Link>
         </div>
     );
 };
@@ -68,7 +102,9 @@ const mapStateToProps = state => ({
 
 SignUpForm.propTypes = {
     auth: PropTypes.object,
-    signUp: PropTypes.func
+    signUp: PropTypes.func,
+    clearError: PropTypes.func,
+    history: PropTypes.object
 };
 
-export default connect(mapStateToProps, { signUp })(SignUpForm);
+export default connect(mapStateToProps, { signUp, clearError })(withRouter(SignUpForm));
