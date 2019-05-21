@@ -6,12 +6,10 @@ const props = {
     auth: {
         isLoading: false
     },
-    history: {
-        push: jest.fn()
-    },
     signUp: jest.fn(),
     clearError: jest.fn()
 };
+
 let wrapper;
 
 describe('<App />', () => {

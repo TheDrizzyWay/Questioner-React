@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import withFormError from './FormWithErrorHOC';
 import { signUp, clearError } from '../actions';
 import Spinner from './Spinner';
-import ToastMessage from './ToastMessage';
+import AppToast, { openSnackbar } from './AppToast';
 
 const SignUpForm = (props) => {
     const initialFormState = {
@@ -36,15 +35,18 @@ const SignUpForm = (props) => {
         signUp(info);
     };
 
+    const displayToast = (message) => {
+        openSnackbar({ message });
+    };
+
     const { auth, history } = props;
-    const spinner = auth.isLoading ? <Spinner /> : null;
+    const redirect = () => history.push('/signin');
+    const spinner = auth.isLoading ? <Spinner style={{ float: 'right' }}/> : null;
 
     return (
         <div id="wrapper">
-            {auth.signedUp && toast(<ToastMessage message={auth.message} />, {
-                type: 'info',
-                onClose: () => history.push('/signin')
-            })}
+            {auth.signedUp && displayToast(auth.message)}
+            <AppToast callback={redirect} />
             <form id="signup_form" onSubmit={onSubmitHandler} hidden={!!auth.signedUp}>
                 <fieldset>
                     <legend>Signup Form</legend>
@@ -83,8 +85,8 @@ const SignUpForm = (props) => {
                         onChange={onChangeHandler} onFocus={clearErrorHandler} required />)}
 
                     <button type="submit" id="submit" disabled={!!auth.isLoading}>
-                        {auth.isLoading ? 'Loading... ' : 'Submit'}{spinner}
-                    </button>
+                        {auth.isLoading ? 'Loading... ' : 'Submit'}
+                    </button>{spinner}
                 </fieldset>
             </form>
             <span>Already a member? Login below.</span>

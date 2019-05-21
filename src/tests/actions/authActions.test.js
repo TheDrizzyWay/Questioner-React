@@ -44,4 +44,31 @@ describe('sign up actions', () => {
             payload: 'id'
         });
     });
+
+    test('it should dispatch SIGN_UP_SUCCESS on successfull signup', () => {
+        const expectedAction = [
+            { type: AUTH_LOADING, payload: true },
+            { type: SIGN_UP_SUCCESS, payload: undefined }
+        ];
+        axiosInstance.post = jest.fn().mockReturnValue(Promise.resolve({ data: successSignup }));
+
+        store.dispatch(signUp(successSignup)).then(() => {
+            expect(store.getActions()).toEqual(expectedAction);
+        });
+    });
+
+    test('it should dispatch SIGN_UP_ERROR on failed signup', () => {
+        const error = {
+            response: { data: errorSignup }
+        };
+        const expectedAction = [
+            { type: AUTH_LOADING, payload: true },
+            { type: AUTH_LOADING, payload: false }
+        ];
+        axiosInstance.post = jest.fn().mockReturnValue(Promise.reject({ error }));
+
+        store.dispatch(signUp(errorSignup)).catch(() => {
+            expect(store.getActions()).toEqual(expectedAction);
+        });
+    });
 });

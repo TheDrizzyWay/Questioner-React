@@ -1,7 +1,8 @@
 .spinner {
-  height: 30px;
+  height: 25px;
   position: relative;
   margin-top: 20px;
+  display: inline;
 }
 
 .spinner::before {
@@ -9,7 +10,7 @@
   border: 3px solid #eeeeee;
   content: '';
   width: 30px;
-  height: 30px;
+  height: 25px;
   left: 50%;
   top: 10%;
   border-radius: 50%;
