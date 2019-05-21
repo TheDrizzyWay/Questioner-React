@@ -1,5 +1,7 @@
 import authTypes from '../actiontypes';
-const { AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR, CLEAR_AUTH_ERROR } = authTypes;
+const { AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR,
+    CLEAR_AUTH_ERROR, LOGIN_SUCCESS
+} = authTypes;
 import axiosInstance from '../utils/axiosRequest';
 
 const setLoading = (value) => ({
@@ -43,4 +45,25 @@ const signUp = (formObject) => async (dispatch) => {
     }
 };
 
-export { signUp, clearError, setLoading, setError };
+const login = (formObject) => async dispatch => {
+    try {
+        dispatch(setLoading(true));
+        const requestBody = JSON.stringify(formObject);
+        const header = { 'Content-Type': 'application/json' };
+
+        const { data } = await axiosInstance.post('/auth/login', requestBody, {
+            headers: header
+        });
+        return dispatch({
+            type: LOGIN_SUCCESS,
+            payload: data.data
+        });
+    } catch (err) {
+        dispatch(setLoading(false));
+        const { response: { data: { status, error } } } = err;
+        if (status === 404) return dispatch(setError({ email: [error] }));
+        if (status === 401) return dispatch(setError({ password: [error] }));
+    }
+};
+
+export { signUp, clearError, setLoading, setError, login };
