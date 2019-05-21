@@ -24,6 +24,12 @@ const authReducer = (state = initialAuthState, { type, payload }) => {
                 ...state,
                 [payload]: null
             };
+        case 'LOGIN_SUCCESS':
+            return {
+                ...state,
+                loggedIn: payload,
+                isLoading: false
+            };
         default:
             return {
                 ...state,

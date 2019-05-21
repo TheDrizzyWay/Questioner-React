@@ -1,3 +1,3 @@
-import { signUp, clearError, setLoading, setError } from './authActions';
+import { signUp, clearError, setLoading, setError, login } from './authActions';
 
-export { signUp, clearError, setLoading, setError };
+export { signUp, clearError, setLoading, setError, login };

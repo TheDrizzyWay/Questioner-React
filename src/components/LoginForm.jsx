@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import withFormError from './FormWithErrorHOC';
 import { login, clearError } from '../actions';
 import Spinner from './Spinner';
@@ -30,18 +30,23 @@ const LoginForm = (props) => {
     };
 
     const { auth } = props;
-    const spinner = auth.isLoading ? <Spinner style={{ float: 'right' }}/> : null;
+    const redirect = () => {
+        const path = auth.loggedIn[0].isadmin ? '/adminhome' : 'userhome';
+        return <Redirect to={path} />;
+    };
+    const spinner = auth.isLoading ? <Spinner size={23} /> : null;
 
     return (
         <div id="wrapper">
+            {auth.loggedIn && redirect()}
             <form className="lower" onSubmit={onSubmitHandler}>
                 <fieldset>
                     <legend>Login Form</legend>
-                    {withFormError(null,
+                    {withFormError(auth.email ? auth.email[0] : null,
                         <input type="text" id="email" placeholder="Email" onChange={onChangeHandler}
                             onFocus={clearErrorHandler} required />)}
 
-                    {withFormError(null,
+                    {withFormError(auth.password ? auth.password[0] : null,
                         <input type="password" id="password" placeholder="Password" onChange={onChangeHandler}
                             onFocus={clearErrorHandler} required />)}
 

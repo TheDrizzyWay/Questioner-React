@@ -41,7 +41,7 @@ const SignUpForm = (props) => {
 
     const { auth, history } = props;
     const redirect = () => history.push('/signin');
-    const spinner = auth.isLoading ? <Spinner style={{ float: 'right' }}/> : null;
+    const spinner = auth.isLoading ? <Spinner size={23} /> : null;
 
     return (
         <div id="wrapper">
