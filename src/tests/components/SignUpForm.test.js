@@ -12,7 +12,7 @@ const props = {
 
 let wrapper;
 
-describe('<App />', () => {
+describe('<SignUpForm />', () => {
     it('Should render component successfully', () => {
         wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
         expect(wrapper.length).toEqual(1);

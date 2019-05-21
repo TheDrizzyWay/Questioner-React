@@ -2,7 +2,10 @@ import authReducer from '../../reducers/authReducer';
 import authTypes from '../../actiontypes';
 import { successSignup, errorSignup } from '../dummydata';
 
-const { AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR, CLEAR_AUTH_ERROR } = authTypes;
+const {
+    AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR,
+    CLEAR_AUTH_ERROR, LOGIN_SUCCESS
+} = authTypes;
 const initialState = { isLoading: false };
 
 describe('auth reducer', () => {
@@ -39,6 +42,16 @@ describe('auth reducer', () => {
             signedUp: true,
             isLoading: false,
             message: 'Thanks for signing up myname. You will be redirected to the login page shortly.'
+        });
+    });
+
+    it('should return LOGIN_SUCCESS on successful login', () => {
+        expect(authReducer(undefined, {
+            type: LOGIN_SUCCESS,
+            payload: successSignup
+        })).toEqual({
+            loggedIn: successSignup,
+            isLoading: false
         });
     });
 });
