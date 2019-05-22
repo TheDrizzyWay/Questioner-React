@@ -63,6 +63,7 @@ const login = (formObject) => async dispatch => {
         const { response: { data: { status, error } } } = err;
         if (status === 404) return dispatch(setError({ email: [error] }));
         if (status === 401) return dispatch(setError({ password: [error] }));
+        if (status === 400) return dispatch(setError({ password: [error] }));
     }
 };
 
