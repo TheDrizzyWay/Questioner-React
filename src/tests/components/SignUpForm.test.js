@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SignUpForm from '../../components/SignUpForm';
+import { SignUpForm } from '../../components/SignUpForm';
 
 const props = {
     auth: {
@@ -14,23 +14,23 @@ let wrapper;
 
 describe('<SignUpForm />', () => {
     it('Should render component successfully', () => {
-        wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
+        wrapper = shallow(<SignUpForm {...props} />);
         expect(wrapper.length).toEqual(1);
     });
 
     test('Should maintain existing snapshot', () => {
-        wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
+        wrapper = shallow(<SignUpForm {...props} />);
         expect(wrapper).toMatchSnapshot();
     });
 
     test('should clear errors on focus', () => {
-        wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
+        wrapper = shallow(<SignUpForm {...props} />);
         wrapper.find('input').at(0).simulate('focus', { target: { id: 'firstname' } });
         expect(props.clearError).toHaveBeenCalled();
     });
 
     test('should correctly update state on input change', () => {
-        wrapper = shallow(<SignUpForm.WrappedComponent {...props} />);
+        wrapper = shallow(<SignUpForm {...props} />);
         wrapper.find('input').at(0).simulate('change', { target: { value: 'myname' } });
         wrapper.find('input').at(1).simulate('change', { target: { value: 'lastname' } });
         wrapper.find('input').at(2).simulate('change', { target: { value: 'user@email.com' } });

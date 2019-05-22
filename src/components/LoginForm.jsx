@@ -6,7 +6,7 @@ import withFormError from './FormWithErrorHOC';
 import { login, clearError } from '../actions';
 import Spinner from './Spinner';
 
-const LoginForm = (props) => {
+export const LoginForm = (props) => {
     const initialFormState = {
         email: '',
         password: ''

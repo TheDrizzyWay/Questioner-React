@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AdminHOC from '../components/AdminHOC';
+import AuthorizationHOC from '../components/AuthorizationHOC';
 import LandingPage from '../containers/LandingPage';
 import SignUpPage from '../containers/SignUpPage';
 import LoginPage from '../containers/LoginPage';
@@ -18,9 +20,9 @@ const Routes = () => {
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/signup" component={SignUpPage} />
                 <Route exact path="/signin" component={LoginPage} />
-                <Route exact path="/adminhome" component={AdminHomePage} />
+                <AdminHOC exact path="/adminhome" component={AdminHomePage} />
                 <Route exact path="/view" component={MeetupViewPage} />
-                <Route exact path="/userhome" component={UserHomePage} />
+                <AuthorizationHOC exact path="/userhome" component={UserHomePage} />
                 <Route exact path="/questions" component={QuestionsPage} />
                 <Route exact path="/comments" component={CommentsPage} />
                 <Route component={NotFoundPage} />

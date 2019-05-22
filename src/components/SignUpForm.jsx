@@ -7,7 +7,7 @@ import { signUp, clearError } from '../actions';
 import Spinner from './Spinner';
 import AppToast, { openSnackbar } from './AppToast';
 
-const SignUpForm = (props) => {
+export const SignUpForm = (props) => {
     const initialFormState = {
         firstname: '',
         lastname: '',
