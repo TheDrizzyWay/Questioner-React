@@ -1,7 +1,7 @@
-import authTypes from '../actiontypes';
+import types from '../actiontypes';
 const { AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR,
     CLEAR_AUTH_ERROR, LOGIN_SUCCESS
-} = authTypes;
+} = types;
 import axiosInstance from '../utils/axiosRequest';
 
 const setLoading = (value) => ({
@@ -23,10 +23,9 @@ const signUp = (formObject) => async (dispatch) => {
     try {
         dispatch(setLoading(true));
         const requestBody = JSON.stringify(formObject);
-        const header = { 'Content-Type': 'application/json' };
 
         const { data } = await axiosInstance.post('/auth/signup', requestBody, {
-            headers: header
+            headers: { 'Content-Type': 'application/json' }
         });
         return dispatch({
             type: SIGN_UP_SUCCESS,

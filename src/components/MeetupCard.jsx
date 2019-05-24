@@ -20,7 +20,7 @@ const styles = {
 };
 
 const MeetupCard = (props) => {
-    const { classes } = props;
+    const { classes, topic, location, image, happeningon } = props;
     return (
         <Card className={classes.card}>
             <CardActionArea className="meet_card">
@@ -29,18 +29,17 @@ const MeetupCard = (props) => {
                     alt="Contemplative Reptile"
                     className={classes.media}
                     height="170"
-                    image={dummyImage}
+                    image={image || dummyImage}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-            Sample Meetup
+                        {topic}
                     </Typography>
-                    <Typography component="p">
-            LOCATION: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt
+                    <Typography component="p" variant="h6">
+            Location: {location}
                     </Typography>
                     <Typography component="h3" color="primary" variant="title">
-            DATE: 05/05/2019
+            DATE: {happeningon}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -54,7 +53,11 @@ const MeetupCard = (props) => {
 };
 
 MeetupCard.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    topic: PropTypes.string,
+    location: PropTypes.string,
+    image: PropTypes.string,
+    happeningon: PropTypes.string
 };
 
 export default withStyles(styles)(MeetupCard);
