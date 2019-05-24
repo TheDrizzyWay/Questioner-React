@@ -8,7 +8,7 @@ import Pagination from '../components/Pagination';
 import createicon from '../assets/images/create-new.png';
 import { getMeetups } from '../actions';
 
-const AdminHome = (props) => {
+export const AdminHome = (props) => {
     useEffect(() => {
         props.getMeetups();
     }, []);

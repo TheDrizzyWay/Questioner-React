@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { TopBar } from '../../components/TopBar';
 
+delete window.location;
+window.location = { reload: jest.fn() };
+const clearSpy = jest.spyOn(Object.getPrototypeOf(window.localStorage), 'clear');
+
 const props = {
     section: 'section',
     classes: {
@@ -20,5 +24,12 @@ describe('<TopBar />', () => {
     test('Should maintain existing snapshot', () => {
         wrapper = shallow(<TopBar {...props} />);
         expect(wrapper).toMatchSnapshot();
+    });
+
+    test('should clear local storage on logout', () => {
+        wrapper = shallow(<TopBar {...props} />);
+        wrapper.find('WithStyles(Button)').simulate('click');
+        expect(clearSpy).toHaveBeenCalled();
+        expect(window.location.reload).toHaveBeenCalled();
     });
 });
