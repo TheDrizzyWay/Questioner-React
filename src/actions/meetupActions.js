@@ -24,10 +24,9 @@ const getMeetups = () => async (dispatch) => {
             payload: data.data
         });
     } catch (err) {
-        dispatch(meetupsLoading(false));
         const { response: { data: { error } } } = err;
         return dispatch(meetupsError(error));
     }
 };
 
-export default getMeetups;
+export { getMeetups, meetupsError, meetupsLoading };

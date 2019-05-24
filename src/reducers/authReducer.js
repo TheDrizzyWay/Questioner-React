@@ -20,7 +20,8 @@ const authReducer = (state = initialAuthState, { type, payload }) => {
         case SIGN_UP_ERROR:
             return {
                 ...state,
-                ...payload
+                ...payload,
+                isLoading: false
             };
         case CLEAR_AUTH_ERROR:
             return {

@@ -58,7 +58,6 @@ const login = (formObject) => async dispatch => {
             payload: data.data
         });
     } catch (err) {
-        dispatch(setLoading(false));
         const { response: { data: { status, error } } } = err;
         if (status === 404) return dispatch(setError({ email: [error] }));
         if (status === 401) return dispatch(setError({ password: [error] }));

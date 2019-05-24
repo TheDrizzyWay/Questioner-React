@@ -1,12 +1,12 @@
 import types from '../actiontypes';
 
 const { MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR } = types;
-const initialAuthState = {
+const initialState = {
     meetups: [],
     isLoading: false
 };
 
-const meetupsReducer = (state = initialAuthState, { type, payload }) => {
+const meetupsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case MEETUPS_LOADING:
             return {
@@ -22,7 +22,8 @@ const meetupsReducer = (state = initialAuthState, { type, payload }) => {
         case MEETUPS_ERROR:
             return {
                 ...state,
-                error: payload
+                error: payload,
+                isLoading: false
             };
         default:
             return {
