@@ -1,11 +1,11 @@
 import authReducer from '../../reducers/authReducer';
-import authTypes from '../../actiontypes';
+import types from '../../actiontypes';
 import { successSignup, errorSignup } from '../dummydata';
 
 const {
     AUTH_LOADING, SIGN_UP_SUCCESS, SIGN_UP_ERROR,
     CLEAR_AUTH_ERROR, LOGIN_SUCCESS
-} = authTypes;
+} = types;
 const initialState = { isLoading: false };
 
 describe('auth reducer', () => {
@@ -24,7 +24,7 @@ describe('auth reducer', () => {
         expect(authReducer(undefined, {
             type: SIGN_UP_ERROR,
             payload: errorSignup
-        })).toEqual({ ...errorSignup });
+        })).toEqual({ ...errorSignup, isLoading: false });
     });
 
     it('should return CLEAR_AUTH_ERROR when errors are cleared', () => {

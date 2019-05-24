@@ -89,7 +89,7 @@
       "\\.(css|scss)$": "<rootDir>/fileTransformer.js"
     },
     "modulePathIgnorePatterns": [
-      "src/store.js"
+      "<rootDir>/src/store.js"
     ]
   }
 }
