@@ -16,7 +16,8 @@ export const AdminHome = (props) => {
     const {
         isLoading, meetups, createMeetup,
         clearCreateError, createError, created,
-        toggleCreateModal, showCreateModal
+        toggleCreateModal, showCreateModal,
+        createLoading
     } = props;
 
     return (
@@ -28,6 +29,7 @@ export const AdminHome = (props) => {
           created={created}
           toggleCreateModal={toggleCreateModal}
           showCreateModal={showCreateModal}
+          createLoading={createLoading}
       />
         <section>
             {isLoading && <Spinner spinclass="center" />}
@@ -73,7 +75,8 @@ AdminHome.propTypes = {
     createError: PropTypes.any,
     created: PropTypes.bool,
     toggleCreateModal: PropTypes.func,
-    showCreateModal: PropTypes.bool
+    showCreateModal: PropTypes.bool,
+    createLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminHome);
