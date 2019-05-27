@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import withFormError from './FormWithErrorHOC';
 import { signUp, clearError } from '../actions';
 import Spinner from './Spinner';
-import AppToast, { openSnackbar } from './AppToast';
+import AppToast from './AppToast';
 
 export const SignUpForm = (props) => {
     const initialFormState = {
@@ -35,21 +35,22 @@ export const SignUpForm = (props) => {
         signUp(info);
     };
 
+    const appToastRef = useRef();
     const displayToast = (message) => {
-        openSnackbar({ message });
+        appToastRef.current.openSnackbar(message);
     };
 
     const { auth, history } = props;
     const redirect = () => history.push('/signin');
-    const spinner = auth.isLoading ? <Spinner size={23} /> : null;
+    const spinner = auth.isLoading ? <Spinner size={23} spinclass="authspin" /> : null;
 
     return (
         <div id="wrapper">
             {auth.signedUp && displayToast(auth.message)}
-            <AppToast callback={redirect} />
+            <AppToast ref={appToastRef} callback={redirect} />
             <form id="signup_form" onSubmit={onSubmitHandler} hidden={!!auth.signedUp}>
                 <fieldset>
-                    <legend>Signup Form</legend>
+                    <p>Signup Form</p>
                     {withFormError(auth.firstname ? auth.firstname[0] : null,
                         <input type="text" id="firstname"
                             placeholder="First Name" value={info.firstname}
