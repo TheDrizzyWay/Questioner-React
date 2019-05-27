@@ -1,5 +1,10 @@
 import { signUp, clearError, setLoading, setError, login } from './authActions';
-import { getMeetups, meetupsError, meetupsLoading } from './meetupActions';
+import {
+    getMeetups, meetupsError, meetupsLoading,
+    createMeetup, clearCreateError, createMeetupLoading,
+    createMeetupError
+} from './meetupActions';
+import toggleCreateModal from './modalActions';
 
 export { signUp,
     clearError,
@@ -8,5 +13,10 @@ export { signUp,
     login,
     getMeetups,
     meetupsError,
-    meetupsLoading
+    meetupsLoading,
+    createMeetup,
+    clearCreateError,
+    createMeetupLoading,
+    createMeetupError,
+    toggleCreateModal
 };
