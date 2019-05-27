@@ -60,7 +60,7 @@ const CreateMeetupModal = (props) => {
         displayToast('Your meetup has been created successfully.');
     };
 
-    const spinner = createLoading ? <Spinner size={23} spinclass="create" /> : null;
+    const spinner = createLoading ? <Spinner size={28} spinclass="create" /> : null;
     return (
       <>
       <AppToast ref={appToastRef} />
