@@ -34,14 +34,14 @@ export const LoginForm = (props) => {
         const path = auth.loggedIn[0].isadmin ? '/adminhome' : 'userhome';
         return <Redirect to={path} />;
     };
-    const spinner = auth.isLoading ? <Spinner size={23} /> : null;
+    const spinner = auth.isLoading ? <Spinner size={23} spinclass="authspin" /> : null;
 
     return (
         <div id="wrapper">
             {auth.loggedIn && redirect()}
             <form className="lower" onSubmit={onSubmitHandler}>
                 <fieldset>
-                    <legend>Login Form</legend>
+                    <p>Login Form</p>
                     {withFormError(auth.email ? auth.email[0] : null,
                         <input type="text" id="email" placeholder="Email" onChange={onChangeHandler}
                             onFocus={clearErrorHandler} required />)}

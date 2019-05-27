@@ -1,22 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import AppToast from '../../components/AppToast';
+import LoginPage from '../../containers/LoginPage';
 
-const props = {
-    callback: null,
-    message: '',
-    open: false
-};
 let wrapper;
 
-describe('AppToast', () => {
+describe('<LoginPage />', () => {
     it('Should render component successfully', () => {
-        wrapper = shallow(<AppToast {...props} />);
+        wrapper = shallow(<LoginPage />);
         expect(wrapper.length).toEqual(1);
     });
 
     test('Should maintain existing snapshot', () => {
-        wrapper = shallow(<AppToast {...props} />);
+        wrapper = shallow(<LoginPage />);
         expect(wrapper).toMatchSnapshot();
     });
 });
