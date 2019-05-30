@@ -1,8 +1,10 @@
 import types from '../actiontypes';
 
-const { MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR,
+const {
+    MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR,
     CREATE_MEETUP, CREATE_MEETUP_LOADING, CREATE_MEETUP_ERROR,
-    CLEAR_CREATE_ERROR
+    CLEAR_CREATE_ERROR, ONE_MEETUP_LOADING, ONE_MEETUP_SUCCESS,
+    ONE_MEETUP_ERROR, TOP_QUESTIONS
 } = types;
 const initialState = {
     meetups: [],
@@ -23,7 +25,8 @@ const meetupsReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 meetups: payload,
-                isLoading: false
+                isLoading: false,
+                oneError: false
             };
         case MEETUPS_ERROR:
             return {
@@ -49,12 +52,34 @@ const meetupsReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 createError: payload,
-                createLoading: payload
+                createLoading: false
             };
         case CLEAR_CREATE_ERROR:
             return {
                 ...state,
                 createError: null
+            };
+        case ONE_MEETUP_LOADING:
+            return {
+                ...state,
+                oneLoading: payload
+            };
+        case ONE_MEETUP_SUCCESS:
+            return {
+                ...state,
+                meetup: payload,
+                oneLoading: false
+            };
+        case ONE_MEETUP_ERROR:
+            return {
+                ...state,
+                oneLoading: false,
+                oneError: payload
+            };
+        case TOP_QUESTIONS:
+            return {
+                ...state,
+                topQuestions: payload
             };
         default:
             return {

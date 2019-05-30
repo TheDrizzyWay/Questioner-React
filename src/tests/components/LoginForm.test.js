@@ -4,7 +4,8 @@ import { LoginForm } from '../../components/LoginForm';
 
 const props = {
     auth: {
-        isLoading: false
+        isLoading: false,
+        loggedIn: ''
     },
     login: jest.fn(),
     clearError: jest.fn()

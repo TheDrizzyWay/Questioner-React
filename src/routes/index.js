@@ -21,7 +21,7 @@ const Routes = () => {
                 <Route exact path="/signup" component={SignUpPage} />
                 <Route exact path="/signin" component={LoginPage} />
                 <AdminHOC exact path="/adminhome" component={AdminHomePage} />
-                <Route exact path="/view" component={MeetupViewPage} />
+                <AuthorizationHOC exact path="/view/:id" component={MeetupViewPage} />
                 <AuthorizationHOC exact path="/userhome" component={UserHomePage} />
                 <Route exact path="/questions" component={QuestionsPage} />
                 <Route exact path="/comments" component={CommentsPage} />
