@@ -34,7 +34,7 @@ const meetupsReducer = (state = initialState, { type, payload }) => {
         case CREATE_MEETUP_LOADING:
             return {
                 ...state,
-                createLoading: true
+                createLoading: payload
             };
         case CREATE_MEETUP:
             return {
@@ -49,7 +49,7 @@ const meetupsReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 createError: payload,
-                createLoading: false
+                createLoading: payload
             };
         case CLEAR_CREATE_ERROR:
             return {
