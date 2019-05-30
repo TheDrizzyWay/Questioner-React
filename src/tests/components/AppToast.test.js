@@ -1,9 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import AppToast from '../../components/AppToast';
 
+jest.useFakeTimers();
+jest.advanceTimersByTime(3000);
 const props = {
-    callback: null,
+    callback: jest.fn(),
     message: '',
     open: false
 };
@@ -18,5 +20,14 @@ describe('AppToast', () => {
     test('Should maintain existing snapshot', () => {
         wrapper = shallow(<AppToast {...props} />);
         expect(wrapper).toMatchSnapshot();
+    });
+
+    test('Should update the state accurately', () => {
+        wrapper = mount(<AppToast {...props} />);
+        wrapper.setState({ open: true });
+        expect(wrapper.state().open).toEqual(true);
+        expect(setTimeout).toHaveBeenCalled();
+        wrapper.setState({ open: false });
+        expect(wrapper.state().open).toEqual(false);
     });
 });

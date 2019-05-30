@@ -21,11 +21,17 @@ describe('<CreateMeetupModal />', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    /* test('should close modal on meetup cration', () => {
-        props.created = true;
-        wrapper = shallow(<CreateMeetupModal {...props} />);
-        expect(props.toggleCreateModal).toHaveBeenCalled();
-    }); */
+    // test('should close modal on meetup creation', () => {
+    //     props.created = true;
+    //     wrapper = mount(<CreateMeetupModal {...props} />);
+    //     const instance = wrapper.instance();
+    //     instance.refs = {
+    //         appToastRef: {
+    //             getRenderedComponent: jest.fn(() => ({ openSnackbar: jest.fn }))
+    //         }
+    //     };
+    //     expect(props.toggleCreateModal).toHaveBeenCalled();
+    // });
 
     test('should correctly update state on input change', () => {
         wrapper = shallow(<CreateMeetupModal {...props} />);

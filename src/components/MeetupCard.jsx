@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -20,7 +21,7 @@ const styles = {
 };
 
 const MeetupCard = (props) => {
-    const { classes, topic, location, image, happeningon } = props;
+    const { classes, topic, location, image, happeningon, id } = props;
     return (
         <Card className={classes.card}>
             <CardActionArea className="meet_card">
@@ -45,7 +46,9 @@ const MeetupCard = (props) => {
             </CardActionArea>
             <CardActions style={{ justifyContent: 'center' }}>
                 <Button size="small" color="primary">
+                    <Link to={`/view/${id}`} style={{ textDecoration: 'none' }}>
           View Details
+                    </Link>
                 </Button>
             </CardActions>
         </Card>
@@ -53,6 +56,7 @@ const MeetupCard = (props) => {
 };
 
 MeetupCard.propTypes = {
+    id: PropTypes.number,
     classes: PropTypes.object.isRequired,
     topic: PropTypes.string,
     location: PropTypes.string,

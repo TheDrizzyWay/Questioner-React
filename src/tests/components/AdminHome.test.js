@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { AdminHome } from '../../components/AdminHome';
 
 const props = {
@@ -30,7 +31,7 @@ describe('<AdminHome />', () => {
               image: 'image'
           }]
         };
-        wrapper = mount(<AdminHome {...props} />);
+        wrapper = mount(<Router><AdminHome {...props} /></Router>);
         expect(props.getMeetups).toHaveBeenCalled();
         expect(wrapper.exists('MeetupCard')).toEqual(true);
         expect(wrapper.exists('Spinner')).toEqual(true);

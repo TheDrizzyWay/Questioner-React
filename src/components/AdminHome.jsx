@@ -39,7 +39,7 @@ export const AdminHome = (props) => {
                     <Grid container direction="row" spacing={0}
                         style={{ padding: 24, justifyContent: 'space-between' }}>
                         {meetups.paginatedResult.map(({ id, ...rest }) => (
-                            <MeetupCard key={id} {...rest} />
+                            <MeetupCard key={id} id={id} {...rest} />
                         ))}
                     </Grid>
                 ) : (<div>'No meetups created yet.'</div>)}

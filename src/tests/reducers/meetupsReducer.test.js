@@ -4,7 +4,8 @@ import types from '../../actiontypes';
 const {
     MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR,
     CREATE_MEETUP_LOADING, CREATE_MEETUP_ERROR,
-    CLEAR_CREATE_ERROR
+    CLEAR_CREATE_ERROR, CREATE_MEETUP, ONE_MEETUP_LOADING,
+    ONE_MEETUP_SUCCESS, ONE_MEETUP_ERROR, TOP_QUESTIONS
 } = types;
 const initialState = {
     meetups: [],
@@ -55,7 +56,8 @@ describe('meetups reducer', () => {
             createLoading: false,
             meetups: ['dummy meetups'],
             isLoading: false,
-            created: false
+            created: false,
+            oneError: false
         });
     });
 
@@ -69,6 +71,17 @@ describe('meetups reducer', () => {
             isLoading: false,
             createError: null,
             created: false
+        });
+    });
+
+    it('should return CREATE_MEETUP on success state', () => {
+        expect(meetupsReducer({ meetups: { paginatedResult: [] } }, {
+            type: CREATE_MEETUP,
+            payload: 'dummy meetup'
+        })).toEqual({
+            meetups: { paginatedResult: ['dummy meetup'] },
+            createLoading: false,
+            created: true
         });
     });
 
@@ -94,6 +107,64 @@ describe('meetups reducer', () => {
             createError: null,
             createLoading: false,
             created: false
+        });
+    });
+
+    it('should return ONE_MEETUP_LOADING on loading state', () => {
+        expect(meetupsReducer(undefined, {
+            type: ONE_MEETUP_LOADING,
+            payload: true
+        })).toEqual({
+            oneLoading: true,
+            createError: null,
+            createLoading: false,
+            created: false,
+            isLoading: false,
+            meetups: []
+        });
+    });
+
+    it('should return ONE_MEETUP_SUCCESS on success state', () => {
+        expect(meetupsReducer(undefined, {
+            type: ONE_MEETUP_SUCCESS,
+            payload: 'dummy meetup'
+        })).toEqual({
+            meetup: 'dummy meetup',
+            oneLoading: false,
+            createError: null,
+            createLoading: false,
+            created: false,
+            isLoading: false,
+            meetups: []
+        });
+    });
+
+    it('should return ONE_MEETUP_ERROR on error state', () => {
+        expect(meetupsReducer(undefined, {
+            type: ONE_MEETUP_ERROR,
+            payload: 'error'
+        })).toEqual({
+            oneLoading: false,
+            oneError: 'error',
+            createError: null,
+            createLoading: false,
+            created: false,
+            isLoading: false,
+            meetups: []
+        });
+    });
+
+    it('should return TOP_QUESTIONS on success state', () => {
+        expect(meetupsReducer(undefined, {
+            type: TOP_QUESTIONS,
+            payload: 'dummy question'
+        })).toEqual({
+            topQuestions: 'dummy question',
+            createError: null,
+            createLoading: false,
+            created: false,
+            isLoading: false,
+            meetups: []
         });
     });
 });
