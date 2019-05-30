@@ -4,7 +4,7 @@
  background: url("../images/whitebg.jpg");
  background-size: cover;
  width: 100%;
- height: 100%;
+ height: 2000px;
  transition: all 0.2s ease-in;
 }
 
@@ -262,21 +262,30 @@ section > p {
 }
 
 @media (max-width:600px) {
- .header_container h1 {
+ .ahpg .header_container h1 {
    text-align: center;
  }
- .meet img {
+
+ .ahpg .modal_content {
+  width: 85%;
+ }
+
+ .ahpg .meet img {
    width: 180px;
  }
- .create_form legend {
+ .ahpg .create_form legend {
    margin-left: 5%;
  }
- .create_form input[type="text"], .create_form input[type="file"],
- .create_form textarea {
+ .ahpg .create_form input[type="text"], .ahpg .create_form input[type="file"],
+ .ahpg .create_form textarea {
    width: 180px;
  }
 
- #date {
+ .ahpg #date {
    width: 150px;
+ }
+
+ .ahpg {
+  height: 2000px;
  }
 }

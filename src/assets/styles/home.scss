@@ -80,27 +80,27 @@ body {
 	font-size: 25px;
 }
 
-@media(max-width:600px) {
-  .header_div {
+@media(max-width:768px) {
+  .hpg .header_div {
     padding: 10px;
   }
-  h1 {
+  .hpg h1 {
     color: $milk;
     font-size: 2.0em;
   }
-  .details p {
+  .hpg .details p {
     color: $milk;
   }
-  .details button {
+  .hpg .details button {
     background: $white;
     color: $homeblue;
     width: 30%;
   }
-  .details button:hover {
+  .hpg .details button:hover {
     background: $homeblue;
     color: $white;
   }
-  footer {
-    left: 0;
+  .hpg footer {
+  left: 1%;
   }
 }
