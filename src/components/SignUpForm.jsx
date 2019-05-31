@@ -41,7 +41,7 @@ export const SignUpForm = (props) => {
     };
 
     const { auth, history } = props;
-    const redirect = () => history.push('/signin');
+    const redirect = () => history.push('/userhome');
     const spinner = auth.isLoading ? <Spinner size={23} spinclass="authspin" /> : null;
 
     return (

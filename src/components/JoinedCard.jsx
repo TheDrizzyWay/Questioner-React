@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const JoinedCard = (props) => {
     return (
         <div className="new_one">
-            <p>| TOPIC: {props.topic}</p>
-            <p>| DATE: {props.happeningon}</p>
-            <p>{props.joinedUsers} user(s) have joined this meetup.</p>
-            <div className="rsvp">
-                <a href="userview.html?id=${result.id}"><button>Meetup Details</button></a>
-                <a href="usermeetups.html?id=${result.id}" data-id="${result.id}"><button>Questions</button></a>
+            <div className="join-card">
+                <p>| TOPIC: {props.topic}</p>
+                <p>| DATE: {props.happeningon}</p>
+                <p>{props.joinedUsers} 0 user(s) have joined this meetup.</p>
+                <div className="rsvp">
+                    <Link to="#"><button>Meetup Details</button></Link>
+                    <Link to="#"><button>Questions</button></Link>
+                </div>
             </div>
         </div>
     );

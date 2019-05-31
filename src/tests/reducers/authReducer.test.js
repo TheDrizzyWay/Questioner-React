@@ -37,11 +37,12 @@ describe('auth reducer', () => {
     it('should return SIGN_UP_SUCCESS on successful signup', () => {
         expect(authReducer(undefined, {
             type: SIGN_UP_SUCCESS,
-            payload: successSignup
+            payload: [{ newUser: { firstname: 'name' } }]
         })).toEqual({
             signedUp: true,
+            loggedIn: [{ newUser: { firstname: 'name' } }],
             isLoading: false,
-            message: 'Thanks for signing up myname. You will be redirected to the login page shortly.'
+            message: 'Thanks for signing up name. Redirecting...'
         });
     });
 

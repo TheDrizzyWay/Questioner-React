@@ -1,10 +1,10 @@
 @import './base';
 
-body {
+.hpg {
   background: url("../images/colleagues-1437.jpg");
   background-size: cover;
   width: $fullLength;
-  height: auto;
+  height: 100vh;
   transition: all 0.2s ease-in;
 }
 

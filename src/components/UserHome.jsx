@@ -22,13 +22,12 @@ const UserHome = () => {
                     </div>
                     <JoinedCard />
                     <JoinedCard />
+                    <JoinedCard />
+                    <JoinedCard />
                     <Pagination />
                 </div>
             </div>
         </main>
-        <div className="low_links">
-            <a href="profile.html" className="profile">View Profile</a>
-        </div>
         </>
     );
 };

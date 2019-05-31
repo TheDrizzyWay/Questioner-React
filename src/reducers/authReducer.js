@@ -14,8 +14,9 @@ const authReducer = (state = initialAuthState, { type, payload }) => {
             return {
                 ...state,
                 signedUp: true,
+                loggedIn: payload,
                 isLoading: false,
-                message: `Thanks for signing up ${payload.firstname}. You will be redirected to the login page shortly.`
+                message: `Thanks for signing up ${payload[0].newUser.firstname}. Redirecting...`
             };
         case SIGN_UP_ERROR:
             return {

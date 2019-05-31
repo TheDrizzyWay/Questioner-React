@@ -5,6 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 const styles = {
     root: {
@@ -12,6 +14,10 @@ const styles = {
     },
     grow: {
         flexGrow: 1
+    },
+    avatar: {
+        height: 45,
+        width: 45
     }
 };
 
@@ -29,6 +35,11 @@ export const TopBar = (props) => {
                     <Typography variant="h6" color="inherit" className={classes.grow}>
                         {section}
                     </Typography>
+                    <IconButton
+                        color="inherit"
+                    >
+                        <AccountCircle className={classes.avatar}/>
+                    </IconButton>
                     <Button color="inherit" onClick={handleLogout}>Logout</Button>
                 </Toolbar>
             </AppBar>

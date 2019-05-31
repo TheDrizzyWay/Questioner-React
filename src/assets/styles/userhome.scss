@@ -21,29 +21,6 @@
   font-size: 3.0em;
 }
 
-.uhpg .low_links {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.uhpg .profile {
-  width: 150px;
-  margin-top: 5px;
-  text-align: center;
-  transform: translate(-50%, 0);
-  color: white;
-  background: #00bfff;
-  text-decoration: none;
-  border: none;
-  padding: 5px 15px;
-  font-size: 1.3em;
-  font-weight: 400;
-  border-radius: 3px;
-  box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.4);
-  transition: all 0.15s ease-in-out;
-}
-
 .uhpg .profile:hover {
   background: $white;
   color: #00bfff;
@@ -65,7 +42,7 @@
 .uhpg .new_meetups, .uhpg .joined {
   display: flex;
   flex-direction: column;
-  border: 2px solid $white;
+  border: 2px solid #fffaf0;
   background: #00bfff;
   flex: 1;
   height: 95%;
@@ -74,9 +51,21 @@
 }
 
 .uhpg .new_one {
+  background: $white;
   padding-left: 10px;
   padding-top: 10px;
   padding-right: 10px;
+}
+
+.uhpg .join-card {
+  border: 1px solid $homeblue;
+  margin-top: 18px;
+  margin-bottom: 5px;
+}
+
+.uhpg .join-card .rsvp {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .uhpg .new_one p {
@@ -95,6 +84,7 @@
   font-size: 15px;
   align-self: center;
   padding-left: 10px;
+  margin-left: 5%;
   padding: 5px 22px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -113,10 +103,6 @@
   color: #00bfff;
   padding-left: 10px;
   font-weight: bold;
-}
-
-.uhpg .rsvp {
-  background: #fffaf0;
 }
 
 .uhpg .new_header {
@@ -141,12 +127,55 @@
   background:#f4f4f4;
 }
 
-@media (max-width:600px) {
+.upcoming-card {
+  border: 2px solid $homeblue;
+}
+
+.card-title {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+.upcoming-card .card {
+    margin: 20px;
+    overflow: hidden;
+}
+.upcoming-card img {
+  width: 100%;
+  height: 180px;
+  margin-left: 2.5%;
+}
+.upcoming-card .card .card-content {
+    padding: 5px;
+}
+.upcoming-card .card .price {
+    width: 70px;
+    height: 70px;
+    font-weight: 600;
+    font-size: 1.45rem;
+    line-height: 70px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    letter-spacing: 0;
+}
+.upcoming {
+    width: 20%;
+    padding: 10px;
+}
+.upcoming .card {
+    margin: 0;
+}
+.upcoming .card .card-content {
+    padding: 5px 10px;
+}
+
+@media (max-width:768px) {
   .uhpg header {
     text-align: center;
   }
   .uhpg .wrapper {
-    width: 95%;
+    width: 100%;
+    margin-left: 20px;
   }
   .uhpg .rsvp {
     display: flex;
