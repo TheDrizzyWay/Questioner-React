@@ -24,6 +24,7 @@ const UserHome = () => {
                     <JoinedCard />
                     <JoinedCard />
                     <JoinedCard />
+                    <JoinedCard />
                     <Pagination />
                 </div>
             </div>

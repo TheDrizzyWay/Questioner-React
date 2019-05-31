@@ -13,11 +13,10 @@
   justify-content: center;
   background: #fffaf0;
   margin: auto auto;
-  width: 80%;
-  color: #00bfff;
-}
-
-.uhpg .header_container h1 {
+  width: 100%;
+  color: $black;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.0em;
 }
 
@@ -31,7 +30,7 @@
   display:flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   height: 100%;
   margin-top: 25px;
   margin-left: auto;
@@ -58,22 +57,24 @@
 }
 
 .uhpg .join-card {
-  border: 1px solid $homeblue;
-  margin-top: 18px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 22px;
   margin-bottom: 5px;
 }
 
 .uhpg .join-card .rsvp {
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .uhpg .new_one p {
   background: #fffaf0;
-  font-family: Tahoma;
-  font-size: 1.2em;
-  padding: 10px 10px;
-  color: #00bfff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  padding: 7px 15px;
+  margin-top: 1.5px;
+  color: $black;
 }
 
 .uhpg .new_one button {
@@ -85,6 +86,7 @@
   align-self: center;
   padding-left: 10px;
   margin-left: 5%;
+  margin-top: 5px;
   padding: 5px 22px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -100,9 +102,9 @@
 }
 
 .uhpg span {
-  color: #00bfff;
+  color: $black;
   padding-left: 10px;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .uhpg .new_header {
@@ -128,7 +130,7 @@
 }
 
 .upcoming-card {
-  border: 2px solid $homeblue;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
