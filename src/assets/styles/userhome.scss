@@ -11,10 +11,10 @@
 .uhpg header {
   display: flex;
   justify-content: center;
-  background: #fffaf0;
+  background: $milk;
   margin: auto auto;
   width: 100%;
-  color: $black;
+  color: $homeblue;
   box-shadow: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 3.0em;
@@ -101,7 +101,7 @@
   cursor: pointer;
 }
 
-.uhpg span {
+.uhpg .new_one span {
   color: $black;
   padding-left: 10px;
   font-weight: 300;
@@ -117,7 +117,7 @@
 .uhpg .new_header p {
   background: #00bfff;
   text-align: center;
-  font-family: Tahoma;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5em;
   font-weight: bold;
   color: $white;
@@ -142,9 +142,9 @@
     overflow: hidden;
 }
 .upcoming-card img {
-  width: 100%;
+  width: 80%;
   height: 180px;
-  margin-left: 2.5%;
+  margin-left: 10%;
 }
 .upcoming-card .card .card-content {
     padding: 5px;

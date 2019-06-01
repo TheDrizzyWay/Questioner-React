@@ -5,7 +5,7 @@ const JoinedCard = (props) => {
     return (
         <div className="new_one">
             <div className="join-card">
-                <p>| Sample Topic{props.topic}</p>
+                <p>Sample Topic{props.topic}</p>
                 <p>{props.joinedUsers} 0 user(s) have joined this meetup.</p>
                 <div className="rsvp">
                     <Link to="#"><button>Meetup Details</button></Link>
