@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { CalendarTodayTwoTone } from '@material-ui/icons';
 import dummyImage from '../assets/images/No_image.svg.png';
 
 const styles = {
@@ -40,7 +41,8 @@ const MeetupCard = (props) => {
             Location: {location}
                     </Typography>
                     <Typography component="h3" color="primary" variant="title">
-            DATE: {happeningon}
+                        <CalendarTodayTwoTone style={{ display: 'inline-flex', verticalAlign: 'middle',
+                            fill: '#00bfff' }} /> <p style={{ display: 'inline-flex' }}>{happeningon}</p>
                     </Typography>
                 </CardContent>
             </CardActionArea>
