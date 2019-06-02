@@ -113,4 +113,19 @@ describe('get meetup actions', () => {
             expect(store.getActions()).toEqual(expectedAction);
         });
     });
+
+    test('it should dispatch ONE_MEETUP_ERROR on error state', async () => {
+        const error = {
+            response: { data: { error: 'error' } }
+        };
+        const expectedAction = [
+            { type: ONE_MEETUP_LOADING, payload: true },
+            { type: ONE_MEETUP_ERROR, payload: 'error' }
+        ];
+        axiosInstance.get = await jest.fn().mockRejectedValue(error);
+
+        return store.dispatch(getOneMeetup({ id: 1 })).catch(() => {
+            expect(store.getActions()).toEqual(expectedAction);
+        });
+    });
 });
