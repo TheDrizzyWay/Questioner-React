@@ -6,14 +6,14 @@ import {
     getMeetups, meetupsError, meetupsLoading,
     createMeetup, clearCreateError, createMeetupLoading,
     createMeetupError, oneMeetupLoading, oneMeetupError,
-    getOneMeetup
+    getOneMeetup, clearCreated
 } from '../../actions';
 
 const {
     GET_MEETUPS, MEETUPS_LOADING, MEETUPS_ERROR,
     CREATE_MEETUP, CREATE_MEETUP_ERROR, CREATE_MEETUP_LOADING,
     CLEAR_CREATE_ERROR, ONE_MEETUP_LOADING, ONE_MEETUP_SUCCESS,
-    ONE_MEETUP_ERROR, TOP_QUESTIONS
+    ONE_MEETUP_ERROR, TOP_QUESTIONS, CLEAR_CREATED
 } = types;
 const mockStore = configureMockStore([thunk]);
 const store = mockStore();
@@ -59,6 +59,11 @@ describe('get meetup actions', () => {
     test('it should return correct action for clearing errors', () => {
         action = clearCreateError();
         expect(action).toEqual({ type: CLEAR_CREATE_ERROR });
+    });
+
+    test('it should return correct action for clearing created state', () => {
+        action = clearCreated();
+        expect(action).toEqual({ type: CLEAR_CREATED });
     });
 
     test('it should return correct action for loading one meeetup', () => {

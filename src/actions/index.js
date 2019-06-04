@@ -3,11 +3,12 @@ import {
     getMeetups, meetupsError, meetupsLoading,
     createMeetup, clearCreateError, createMeetupLoading,
     createMeetupError, getOneMeetup, oneMeetupError,
-    oneMeetupLoading
+    oneMeetupLoading, clearCreated
 } from './meetupActions';
-import toggleCreateModal from './modalActions';
+import { showCreateModal, closeCreateModal } from './modalActions';
 
-export { signUp,
+export {
+    signUp,
     clearError,
     setLoading,
     setError,
@@ -17,9 +18,11 @@ export { signUp,
     meetupsLoading,
     createMeetup,
     clearCreateError,
+    clearCreated,
     createMeetupLoading,
     createMeetupError,
-    toggleCreateModal,
+    showCreateModal,
+    closeCreateModal,
     getOneMeetup,
     oneMeetupError,
     oneMeetupLoading

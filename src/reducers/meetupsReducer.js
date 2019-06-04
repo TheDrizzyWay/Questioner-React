@@ -4,7 +4,7 @@ const {
     MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR,
     CREATE_MEETUP, CREATE_MEETUP_LOADING, CREATE_MEETUP_ERROR,
     CLEAR_CREATE_ERROR, ONE_MEETUP_LOADING, ONE_MEETUP_SUCCESS,
-    ONE_MEETUP_ERROR, TOP_QUESTIONS
+    ONE_MEETUP_ERROR, TOP_QUESTIONS, CLEAR_CREATED
 } = types;
 const initialState = {
     meetups: [],
@@ -80,6 +80,11 @@ const meetupsReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 topQuestions: payload
+            };
+        case CLEAR_CREATED:
+            return {
+                ...state,
+                created: false
             };
         default:
             return {

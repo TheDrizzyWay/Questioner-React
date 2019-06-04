@@ -1,6 +1,7 @@
 import types from '../actiontypes';
-const { TOGGLE_CREATE_MODAL } = types;
+const { SHOW_CREATE_MODAL, CLOSE_CREATE_MODAL } = types;
 
-const toggleCreateModal = () => ({ type: TOGGLE_CREATE_MODAL });
+const showCreateModal = () => ({ type: SHOW_CREATE_MODAL });
+const closeCreateModal = () => ({ type: CLOSE_CREATE_MODAL });
 
-export default toggleCreateModal;
+export { showCreateModal, closeCreateModal };

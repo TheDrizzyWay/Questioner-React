@@ -16,8 +16,8 @@ export const AdminHome = (props) => {
     const {
         isLoading, meetups, createMeetup,
         clearCreateError, createError, created,
-        toggleCreateModal, showCreateModal,
-        createLoading
+        displayModal, showCreateModal, clearCreated,
+        closeCreateModal, createLoading
     } = props;
 
     return (
@@ -27,8 +27,10 @@ export const AdminHome = (props) => {
           createError={createError}
           clearCreateError={clearCreateError}
           created={created}
-          toggleCreateModal={toggleCreateModal}
+          clearCreated={clearCreated}
+          displayModal={displayModal}
           showCreateModal={showCreateModal}
+          closeCreateModal={closeCreateModal}
           createLoading={createLoading}
       />
         <section>
@@ -56,14 +58,16 @@ const mapStateToProps = state => ({
     createLoading: state.meetups.createLoading,
     createError: state.meetups.createError,
     created: state.meetups.created,
-    showCreateModal: state.modals.showCreateModal
+    displayModal: state.modals.displayModal
 });
 
 const mapDispatchToProps = {
     getMeetups: actions.getMeetups,
     createMeetup: actions.createMeetup,
     clearCreateError: actions.clearCreateError,
-    toggleCreateModal: actions.toggleCreateModal
+    clearCreated: actions.clearCreated,
+    showCreateModal: actions.showCreateModal,
+    closeCreateModal: actions.closeCreateModal
 };
 
 AdminHome.propTypes = {
@@ -74,8 +78,10 @@ AdminHome.propTypes = {
     clearCreateError: PropTypes.func,
     createError: PropTypes.any,
     created: PropTypes.bool,
-    toggleCreateModal: PropTypes.func,
-    showCreateModal: PropTypes.bool,
+    clearCreated: PropTypes.func,
+    displayModal: PropTypes.bool,
+    showCreateModal: PropTypes.func,
+    closeCreateModal: PropTypes.func,
     createLoading: PropTypes.bool
 };
 

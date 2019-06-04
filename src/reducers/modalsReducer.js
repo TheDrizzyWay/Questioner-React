@@ -1,15 +1,18 @@
 import types from '../actiontypes';
 
-const { TOGGLE_CREATE_MODAL } = types;
+const { SHOW_CREATE_MODAL, CLOSE_CREATE_MODAL } = types;
 
-const initialState = { showCreateModal: false };
+const initialState = { displayModal: false };
 
 const modalsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case TOGGLE_CREATE_MODAL:
+        case SHOW_CREATE_MODAL:
             return {
-                ...state,
-                showCreateModal: !state.showCreateModal
+                displayModal: true
+            };
+        case CLOSE_CREATE_MODAL:
+            return {
+                displayModal: false
             };
         default:
             return {

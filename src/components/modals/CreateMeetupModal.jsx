@@ -6,7 +6,6 @@ import AppToast from '../AppToast';
 import '../../assets/styles/modals.scss';
 import '../../assets/styles/tags.scss';
 import createicon from '../../assets/images/create-new.png';
-import store from '../../store';
 
 const CreateMeetupModal = (props) => {
     const initialFormState = {
@@ -46,7 +45,8 @@ const CreateMeetupModal = (props) => {
 
     const {
         createLoading, createError, created,
-        toggleCreateModal, showCreateModal
+        closeCreateModal, showCreateModal, displayModal,
+        clearCreated
     } = props;
 
     const displayToast = (message) => {
@@ -54,9 +54,8 @@ const CreateMeetupModal = (props) => {
     };
 
     const successDisplay = () => {
-        const currentState = store.getState();
-        delete currentState.meetups.created;
-        toggleCreateModal();
+        clearCreated();
+        closeCreateModal();
         displayToast('Your meetup has been created successfully.');
     };
 
@@ -65,16 +64,16 @@ const CreateMeetupModal = (props) => {
       <>
       <AppToast ref={appToastRef} />
       <div className="create">
-          <button id="modal-button" onClick={toggleCreateModal}>
+          <button id="modal-button" onClick={showCreateModal}>
               <img src={createicon} alt="create icon" />
           </button>
           <p>Create a new meetup</p>
       </div>
       {created && successDisplay()}
       {createError && displayToast(createError)}
-        <div className="modal" style={{ display: showCreateModal ? 'block' : 'none' }}>
+        <div className="modal" style={{ display: displayModal ? 'block' : 'none' }}>
             <div className="modal_content">
-                <span className="close_btn" onClick={toggleCreateModal} disabled={!!createLoading}>&times;</span>
+                <span className="close_btn" onClick={closeCreateModal} disabled={!!createLoading}>&times;</span>
                 <span className="reset_btn" onClick={reset} disabled={!!createLoading}>Reset</span>
                 <div className="create_form">
                     <form encType="multipart/form-data" id="meetup-form" onSubmit={handleSubmit}>
@@ -116,8 +115,10 @@ CreateMeetupModal.propTypes = {
     createMeetup: PropTypes.func,
     clearCreateError: PropTypes.func,
     created: PropTypes.bool,
-    toggleCreateModal: PropTypes.func,
-    showCreateModal: PropTypes.bool
+    clearCreated: PropTypes.func,
+    closeCreateModal: PropTypes.func,
+    showCreateModal: PropTypes.func,
+    displayModal: PropTypes.bool
 };
 
 export default CreateMeetupModal;

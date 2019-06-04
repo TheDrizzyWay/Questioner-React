@@ -3,7 +3,7 @@ const {
     GET_MEETUPS, MEETUPS_LOADING, MEETUPS_ERROR,
     CREATE_MEETUP, CREATE_MEETUP_ERROR, CREATE_MEETUP_LOADING,
     CLEAR_CREATE_ERROR, ONE_MEETUP_LOADING, ONE_MEETUP_SUCCESS,
-    ONE_MEETUP_ERROR, TOP_QUESTIONS
+    ONE_MEETUP_ERROR, TOP_QUESTIONS, CLEAR_CREATED
 } = types;
 import axiosInstance from '../utils/axiosRequest';
 
@@ -28,6 +28,8 @@ const createMeetupLoading = (value) => ({
 });
 
 const clearCreateError = () => ({ type: CLEAR_CREATE_ERROR });
+
+const clearCreated = () => ({ type: CLEAR_CREATED });
 
 const oneMeetupLoading = (value) => ({
     type: ONE_MEETUP_LOADING,
@@ -115,5 +117,5 @@ export {
     getMeetups, meetupsError, meetupsLoading,
     createMeetup, clearCreateError, createMeetupLoading,
     createMeetupError, getOneMeetup, oneMeetupError,
-    oneMeetupLoading
+    oneMeetupLoading, clearCreated
 };

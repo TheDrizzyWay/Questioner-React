@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import types from '../../actiontypes';
-import { toggleCreateModal } from '../../actions';
+import { showCreateModal, closeCreateModal } from '../../actions';
 
-const { TOGGLE_CREATE_MODAL } = types;
+const { SHOW_CREATE_MODAL, CLOSE_CREATE_MODAL } = types;
 const mockStore = configureMockStore([thunk]);
 const store = mockStore();
 let action;
@@ -14,7 +14,12 @@ describe('modal actions', () => {
     });
 
     test('it should return correct action for open modal state', () => {
-        action = toggleCreateModal();
-        expect(action).toEqual({ type: TOGGLE_CREATE_MODAL });
+        action = showCreateModal();
+        expect(action).toEqual({ type: SHOW_CREATE_MODAL });
+    });
+
+    test('it should return correct action for close modal state', () => {
+        action = closeCreateModal();
+        expect(action).toEqual({ type: CLOSE_CREATE_MODAL });
     });
 });

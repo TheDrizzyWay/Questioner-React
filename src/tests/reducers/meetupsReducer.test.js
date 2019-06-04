@@ -5,7 +5,8 @@ const {
     MEETUPS_LOADING, GET_MEETUPS, MEETUPS_ERROR,
     CREATE_MEETUP_LOADING, CREATE_MEETUP_ERROR,
     CLEAR_CREATE_ERROR, CREATE_MEETUP, ONE_MEETUP_LOADING,
-    ONE_MEETUP_SUCCESS, ONE_MEETUP_ERROR, TOP_QUESTIONS
+    ONE_MEETUP_SUCCESS, ONE_MEETUP_ERROR, TOP_QUESTIONS,
+    CLEAR_CREATED
 } = types;
 const initialState = {
     meetups: [],
@@ -160,6 +161,18 @@ describe('meetups reducer', () => {
             payload: 'dummy question'
         })).toEqual({
             topQuestions: 'dummy question',
+            createError: null,
+            createLoading: false,
+            created: false,
+            isLoading: false,
+            meetups: []
+        });
+    });
+
+    it('should return CLEAR_CREATED on clear created state', () => {
+        expect(meetupsReducer(undefined, {
+            type: CLEAR_CREATED
+        })).toEqual({
             createError: null,
             createLoading: false,
             created: false,
